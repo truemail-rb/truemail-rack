@@ -9,10 +9,6 @@ PreCommit:
   BundleAudit:
     enabled: true
 
-  Brakeman:
-    enabled: true
-    flags: ['--exit-on-warn', '--quiet', '--summary']
-
   Fasterer:
     enabled: true
     include: '**/*.rb'
