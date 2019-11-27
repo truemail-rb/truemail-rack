@@ -3,7 +3,7 @@ defaults: &defaults
   docker:
     - image: circleci/ruby:2.6.5-node
   environment:
-    CC_TEST_REPORTER_ID: 20787c0980dfa7d38e494e66d3cd62aef47f1d649ad36bad0e989a70513f51fe
+    CC_TEST_REPORTER_ID: 2660931318841b527cd9d96fe9ad03e3b14f4e4f5b899d90246230120c70cffa
 
 references:
   install_bundler: &install_bundler
