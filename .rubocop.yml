@@ -12,7 +12,7 @@ Style/ParallelAssignment:
 
 # Metrics ---------------------------------------------------------------------
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 Metrics/BlockLength:
@@ -30,7 +30,7 @@ Metrics/MethodLength:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Layout/IndentFirstArrayElement:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
 Layout/ClassStructure:

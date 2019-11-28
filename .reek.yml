@@ -7,3 +7,12 @@ detectors:
 
   LongParameterList:
     max_params: 6
+
+  UtilityFunction:
+    exclude:
+      - TruemailServer::Controllers::Base#error
+      - set_env_vars
+
+  MissingSafeMethod:
+    exclude:
+      - System::Configuration
