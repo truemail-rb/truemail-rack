@@ -1,25 +1,29 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-require 'rack/test'
+require 'ffaker'
+require 'pry'
 
-lib = File.join(File.dirname(__FILE__), '../app/**/*.rb')
+SimpleCov.start
+
 rspec_custom = File.join(File.dirname(__FILE__), 'support/**/*.rb')
+Dir[File.expand_path(rspec_custom)].sort.each { |file| require file unless file[/\A.+_spec\.rb\z/] }
 
-[lib, rspec_custom].each do |folder|
-  Dir[File.expand_path(folder)].each { |file| require file }
-end
+require_relative '../config/loader'
 
 RSpec.configure do |config|
-  config.include Rack::Test::Methods
-
-  config.expect_with :rspec do |expectations|
+  config.expect_with(:rspec) do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    expectations.syntax = :expect
   end
 
-  config.mock_with :rspec do |mocks|
+  config.mock_with(:rspec) do |mocks|
     mocks.verify_partial_doubles = true
   end
 
-  config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.example_status_persistence_file_path = '.rspec_status'
+  config.disable_monkey_patching!
+  config.order = :random
+
+  Kernel.srand(config.seed)
 end
