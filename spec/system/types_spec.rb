@@ -26,7 +26,7 @@ RSpec.describe System::Types do
       include_examples 'coerces object'
     end
 
-    context 'when string without commas' do
+    context 'when string with commas' do
       let(:initial_object) { 'some_string1,some_string2' }
       let(:expected_object) { %w[some_string1 some_string2] }
 
@@ -44,7 +44,7 @@ RSpec.describe System::Types do
       include_examples 'coerces object'
     end
 
-    context 'when string without commas' do
+    context 'when string with commas' do
       let(:initial_object) { 'key1:value1,key2:value2' }
       let(:expected_object) { { 'key1' => :value1, 'key2' => :value2 } }
 
