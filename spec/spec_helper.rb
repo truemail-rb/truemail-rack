@@ -21,6 +21,9 @@ RSpec.configure do |config|
   end
 
   config.include RackHelpers
+  config.include ControllerHelpers
+  config.include RequestHelpers
+  config.include Rack::Test::Methods, type: :request
   config.example_status_persistence_file_path = '.rspec_status'
   config.disable_monkey_patching!
   config.order = :random

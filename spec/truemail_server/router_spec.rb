@@ -2,17 +2,27 @@
 
 RSpec.describe TruemailServer::Router do
   describe 'Resolver' do
-    describe 'defined constants' do
-      it { expect(described_class::Resolver).to be_const_defined(:HOME_PATH) }
-    end
-
     describe '.call' do
       subject(:resolver) { described_class::Resolver.call(resource) }
 
-      context 'when home path found' do
-        let(:resource) { '/' }
+      shared_examples 'assigns a route' do
+        it 'returns corresponding controller class' do
+          expect(resolver).to eq(controller_class)
+        end
+      end
 
-        it { expect(resolver).to be(true) }
+      context 'when resource found in permitted routes' do
+        let(:resource) { '/' }
+        let(:controller_class) { TruemailServer::Controllers::Validator::Show }
+
+        include_examples 'assigns a route'
+      end
+
+      context 'when resource not found in permitted routes' do
+        let(:resource) { '/not_existing_resource' }
+        let(:controller_class) { TruemailServer::Controllers::Error::Show }
+
+        include_examples 'assigns a route'
       end
     end
   end
