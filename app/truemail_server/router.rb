@@ -2,14 +2,6 @@
 
 module TruemailServer
   class Router
-    class Resolver
-      HOME_PATH = '/'
-
-      def self.call(resource)
-        resource.eql?(HOME_PATH)
-      end
-    end
-
     def self.call(request)
       new(request).call
     end
@@ -21,10 +13,18 @@ module TruemailServer
     end
 
     def call
-      controller.call(request_data) # should returns [object, status, CONTENT_TYPE]
+      controller.call(request_data)
     end
 
     private
+
+    class Resolver
+      def self.call(resource)
+        return TruemailServer::Controllers::Validator::Show if resource.eql?('/')
+
+        TruemailServer::Controllers::Error::Show
+      end
+    end
 
     attr_reader :resource, :params, :headers
 

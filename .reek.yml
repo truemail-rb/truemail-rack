@@ -11,6 +11,8 @@ detectors:
   UtilityFunction:
     exclude:
       - TruemailServer::Controllers::Base#error
+      - ControllerHelpers#json_object
+      - RequestHelpers#app
       - set_env_vars
 
   MissingSafeMethod:
