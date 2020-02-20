@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-require 'pry'
-
-SimpleCov.start
-
 rspec_custom = File.join(File.dirname(__FILE__), 'support/**/*.rb')
 Dir[File.expand_path(rspec_custom)].sort.each { |file| require file unless file[/\A.+_spec\.rb\z/] }
 
@@ -22,8 +17,7 @@ RSpec.configure do |config|
 
   config.include RackHelpers
   config.include ControllerHelpers
-  config.include RequestHelpers
-  config.include Rack::Test::Methods, type: :request
+  config.include RequestHelpers, type: :request
   config.example_status_persistence_file_path = '.rspec_status'
   config.disable_monkey_patching!
   config.order = :random
