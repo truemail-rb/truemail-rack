@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'pry'
-
 module TruemailServer
   class Application
     def self.call(env)
