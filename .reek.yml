@@ -1,0 +1,20 @@
+detectors:
+  IrresponsibleModule:
+    enabled: false
+
+  NestedIterators:
+    max_allowed_nesting: 2
+
+  LongParameterList:
+    max_params: 6
+
+  UtilityFunction:
+    exclude:
+      - TruemailServer::Controllers::Base#error
+      - ControllerHelpers#json_object
+      - RequestHelpers#app
+      - set_env_vars
+
+  MissingSafeMethod:
+    exclude:
+      - System::Configuration

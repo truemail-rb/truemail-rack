@@ -1,0 +1,39 @@
+PreCommit:
+  AuthorEmail:
+    enabled: true
+    required: false
+
+  AuthorName:
+    enabled: false
+
+  BundleAudit:
+    enabled: true
+
+  Fasterer:
+    enabled: true
+    include: '**/*.rb'
+
+  TrailingWhitespace:
+    enabled: true
+
+  Reek:
+    enabled: true
+    flags: ['--force-exclusion']
+
+  RuboCop:
+    enabled: true
+    flags: ['--format=emacs', '--force-exclusion', '--display-cop-names']
+    include:
+      - '**/*.gemspec'
+      - '**/*.rake'
+      - '**/*.rb'
+      - '**/*.ru'
+      - '**/Gemfile'
+      - '**/Rakefile'
+
+PostCheckout:
+  ALL:
+    quiet: true
+
+  IndexTags:
+    enabled: true
