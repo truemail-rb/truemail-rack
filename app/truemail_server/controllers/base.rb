@@ -3,6 +3,8 @@
 module TruemailServer
   module Controllers
     class Base
+      require 'json'
+
       CONTENT_TYPE = { 'Content-Type' => 'application/json' }.freeze
 
       def self.call(**args)
