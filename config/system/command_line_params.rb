@@ -18,5 +18,6 @@ module System
     attribute :blacklisted_domains, System::Types::StringToArray.optional
     attribute :smtp_safe_check, System::Types::Params::Bool.optional
     attribute :access_tokens, System::Types::StringToArray
+    attribute :log_stdout, System::Types::Params::Bool.optional
   end
 end

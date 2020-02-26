@@ -48,4 +48,22 @@ RSpec.describe RackHelpers, type: :helper do
       end
     end
   end
+
+  describe '#reset_command_line_params!' do
+    subject(:helper) { reset_command_line_params! }
+
+    it 'resets command line params' do
+      expect(System::Configuration).to receive(:reset_command_line_params!)
+      helper
+    end
+  end
+
+  describe '#reload_rack_cascade!' do
+    subject(:helper) { reload_rack_cascade! }
+
+    it 'resets command line params' do
+      expect(TruemailServer).to receive(:remove_const).with(:RackCascade).and_call_original
+      helper
+    end
+  end
 end

@@ -2,5 +2,4 @@
 
 require_relative 'config/loader'
 
-use Rack::Reloader, 0
-run TruemailServer::Application
+run TruemailServer::RackCascade

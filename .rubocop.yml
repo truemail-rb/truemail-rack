@@ -10,6 +10,15 @@ Style/Documentation:
 Style/ParallelAssignment:
   Enabled: false
 
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -32,6 +41,9 @@ Layout/MultilineMethodCallIndentation:
 
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
+
+Naming/AccessorMethodName:
+  Enabled: false
 
 Layout/ClassStructure:
   Enabled: true
