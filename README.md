@@ -9,6 +9,9 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Simple configuration example](#simple-configuration-example)
+  - [Advanced configuration example](#advanced-configuration-example)
+  - [Request/response example](#requestresponse-example)
 - [Truemail family](#truemail-family)
 - [Contributing](#contributing)
 - [License](#license)
@@ -47,10 +50,11 @@ Before run application you must configure it first. List of available env vars n
 | `WHITELIST_VALIDATION` | `true` | - | With this option Truemail will validate email which [contains whitelisted domain only](https://github.com/rubygarage/truemail#whitelist-validation-case), i.e. if domain whitelisted, validation will passed to Regex, MX or SMTP validators. Validation of email which not contains whitelisted domain always will return `false`. It is equal `false` by default. |
 | `BLACKLISTED_DOMAINS` | `somedomain2.com` | - | Validation of email which [contains blacklisted domain](https://github.com/rubygarage/truemail#blacklist-case) always will return `false`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
 | `SMTP_SAFE_CHECK` | `true` | - | This option will be parse bodies of SMTP errors. It will be helpful if SMTP server does not return an exact answer that the email does not exist. By default [this option is disabled](https://github.com/rubygarage/truemail#smtp-safe-check-disabled), available for SMTP validation only. |
+| `LOG_STDOUT` | `true`  | - | This option will be enable log all http requests to stdout. By default this option is disabled. |
 
 Run Truemail server with command as in example below:
 
-***Simple configuration example:***
+### Simple configuration example:
 
 ```bash
 VERIFIER_EMAIL=your_email@example.com ACCESS_TOKENS=a262d915-15bc-417c-afeb-842c63b54154 rackup
@@ -61,24 +65,57 @@ VERIFIER_EMAIL=your_email@example.com ACCESS_TOKENS=a262d915-15bc-417c-afeb-842c
 # Listening on localhost:9292, CTRL+C to stop
 ```
 
-***Advanced configuration example:***
+### Advanced configuration example:
 
 ```bash
 VERIFIER_EMAIL=your_email@example.com \
 ACCESS_TOKENS=a262d915-15bc-417c-afeb-842c63b54154,f44cd67e-aaa0-4e6c-aa6c-d52cf61f84ac \
-EMAIL_PATTERN=/\A.+@.+\z/ \
-SMTP_ERROR_BODY_PATTERN='/(?=.*550)(?=.*(user|account|customer|mailbox|something_else)).*/' \
+EMAIL_PATTERN="/\A.+@.+\z/" \
+SMTP_ERROR_BODY_PATTERN="/(?=.*550)(?=.*(user|account|customer|mailbox|something_else)).*/" \
 VALIDATION_TYPE_FOR=somedomain1.com:regex,somedomain2.com:mx \
 WHITELISTED_DOMAINS=somedomain3.com \
 WHITELIST_VALIDATION=true \
 BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
 SMTP_SAFE_CHECK=true \
-rackup
+LOG_STDOUT=true \
+thin -R config.ru -a 0.0.0.0 -p 9292 -e production start
 
 # =>
 # Thin web server (v1.7.2 codename Bachmanity)
 # Maximum connections set to 1024
 # Listening on localhost:9292, CTRL+C to stop
+# 127.0.0.1 - - [26/Feb/2020:16:41:13 +0200] "GET /?email=admin%40bestweb.com.ua HTTP/1.1" 200 - 0.9195
+```
+
+### Request/response example
+
+```bash
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: a262d915-15bc-417c-afeb-842c63b54154" http://localhost:9292?email=admin@bestweb.com.ua
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+Connection: close
+Server: thin
+
+{
+  "date": "2020-02-26 17:00:56 +0200",
+  "email": "admin@bestweb.com.ua",
+  "validation_type": "smtp",
+  "success": true,
+  "errors": null,
+  "smtp_debug": null,
+  "configuration": {
+    "validation_type_by_domain": null,
+    "whitelist_validation": false,
+    "whitelisted_domains": null,
+    "blacklisted_domains": null,
+    "smtp_safe_check": false,
+    "email_pattern": "default gem value",
+    "smtp_error_body_pattern": "default gem value"
+  }
+}
 ```
 
 ## Truemail family
