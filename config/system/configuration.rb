@@ -20,6 +20,7 @@ module System
       blacklisted_domains
       smtp_safe_check
       access_tokens
+      log_stdout
     ].freeze
 
     class << self

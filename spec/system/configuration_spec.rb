@@ -37,8 +37,8 @@ RSpec.describe System::Configuration do
 
     context 'when command line params invalid' do
       before do
-        described_class.send(:reset_command_line_params!)
-        ENV['VERIFIER_EMAIL'] = nil
+        reset_command_line_params!
+        set_env_vars(verifier_email: nil)
       end
 
       after { set_env_vars }

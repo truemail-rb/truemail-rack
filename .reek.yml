@@ -13,6 +13,7 @@ detectors:
       - TruemailServer::Controllers::Base#error
       - ControllerHelpers#json_object
       - RequestHelpers#app
+      - RackHelpers#reset_command_line_params!
       - set_env_vars
 
   MissingSafeMethod:
