@@ -54,7 +54,7 @@ Before run application you must configure it first. List of available env vars n
 
 Run Truemail server with command as in example below:
 
-### Simple configuration example:
+### Simple configuration example
 
 ```bash
 VERIFIER_EMAIL=your_email@example.com ACCESS_TOKENS=a262d915-15bc-417c-afeb-842c63b54154 rackup
@@ -89,6 +89,8 @@ thin -R config.ru -a 0.0.0.0 -p 9292 -e production start
 
 ### Request/response example
 
+#### Existent email
+
 ```bash
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: a262d915-15bc-417c-afeb-842c63b54154" http://localhost:9292?email=admin@bestweb.com.ua
 ```
@@ -115,6 +117,48 @@ Server: thin
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value"
   }
+}
+```
+
+#### Nonexistent email
+
+```bash
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: a262d915-15bc-417c-afeb-842c63b54154" http://localhost:9292?email=ololo@bestweb.com.ua
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+Connection: close
+Server: thin
+
+{
+  "configuration": {
+      "blacklisted_domains": null,
+      "email_pattern": "default gem value",
+      "smtp_error_body_pattern": "default gem value",
+      "smtp_safe_check": true,
+      "validation_type_by_domain": null,
+      "whitelist_validation": false,
+      "whitelisted_domains": null
+  },
+  "date": "2020-04-11 20:04:13 +0000",
+  "email": "ololo@bestweb.com.ua",
+  "errors": {
+      "smtp": "smtp error"
+  },
+  "smtp_debug": [
+      {
+          "connection": true,
+          "errors": {
+              "rcptto": "550 5.7.1 No such user!\n"
+          },
+          "mail_host": "213.180.204.89",
+          "port_opened": true
+      }
+  ],
+  "success": false,
+  "validation_type": "smtp"
 }
 ```
 
