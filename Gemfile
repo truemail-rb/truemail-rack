@@ -10,16 +10,16 @@ gem 'thin', '~> 1.7', '>= 1.7.2'
 gem 'truemail', '~> 1.6'
 
 group :development, :test do
-  gem 'pry-byebug', '~> 3.8'
+  gem 'pry-byebug', '~> 3.9'
   gem 'rack-test', '~> 1.1'
   gem 'rspec', '~> 3.9'
 
   # Code quality
   gem 'bundler-audit', '~> 0.6.1', require: false
-  gem 'fasterer', '~> 0.8.2', require: false
+  gem 'fasterer', '~> 0.8.3', require: false
   gem 'overcommit', '~> 0.52.1', require: false
-  gem 'reek', '~> 5.6', require: false
-  gem 'rubocop', '~> 0.80.0', require: false
+  gem 'reek', '~> 6.0', require: false
+  gem 'rubocop', '~> 0.81.0', require: false
   gem 'rubocop-performance', '~> 1.5', '>= 1.5.2', require: false
   gem 'rubocop-rspec', '~> 1.38', '>= 1.38.1', require: false
 end
