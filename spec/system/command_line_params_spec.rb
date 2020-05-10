@@ -37,6 +37,7 @@ RSpec.describe System::CommandLineParams do
           whitelisted_domains: '',
           whitelist_validation: 'true',
           blacklisted_domains: '',
+          not_rfc_mx_lookup_flow: 'false',
           smtp_safe_check: 'false',
           access_tokens: '1,2',
           log_stdout: 'true'
@@ -56,6 +57,7 @@ RSpec.describe System::CommandLineParams do
           whitelisted_domains: [],
           whitelist_validation: true,
           blacklisted_domains: [],
+          not_rfc_mx_lookup_flow: false,
           smtp_safe_check: false,
           access_tokens: %w[1 2],
           log_stdout: true
