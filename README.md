@@ -136,33 +136,33 @@ Connection: close
 Server: thin
 
 {
-  "configuration": {
-      "blacklisted_domains": null,
-      "email_pattern": "default gem value",
-      "smtp_error_body_pattern": "default gem value",
-      "not_rfc_mx_lookup_flow": false,
-      "smtp_safe_check": true,
-      "validation_type_by_domain": null,
-      "whitelist_validation": false,
-      "whitelisted_domains": null
-  },
-  "date": "2020-04-11 20:04:13 +0000",
+  "date": "2020-05-10 20:00:00 +0000",
   "email": "ololo@bestweb.com.ua",
+  "validation_type": "smtp",
+  "success": false,
   "errors": {
-      "smtp": "smtp error"
+    "smtp": "smtp error"
   },
   "smtp_debug": [
-      {
-          "connection": true,
-          "errors": {
-              "rcptto": "550 5.7.1 No such user!\n"
-          },
-          "mail_host": "213.180.204.89",
-          "port_opened": true
-      }
+    {
+      "connection": true,
+      "errors": {
+        "rcptto": "550 5.7.1 No such user!\n"
+      },
+      "mail_host": "213.180.204.89",
+      "port_opened": true
+    }
   ],
-  "success": false,
-  "validation_type": "smtp"
+  "configuration": {
+    "blacklisted_domains": null,
+    "email_pattern": "default gem value",
+    "smtp_error_body_pattern": "default gem value",
+    "not_rfc_mx_lookup_flow": false,
+    "smtp_safe_check": true,
+    "validation_type_by_domain": null,
+    "whitelist_validation": false,
+    "whitelisted_domains": null
+  }
 }
 ```
 
