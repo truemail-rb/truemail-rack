@@ -1,6 +1,6 @@
 # <img src='https://repository-images.githubusercontent.com/219712903/d41c8600-53d5-11ea-9fb1-9e1b89784329' height='250' alt='Truemail server - lightweight rack based web API' />
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/d80b60f7919dda358501/maintainability)](https://codeclimate.com/github/truemail-rb/truemail-rack/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d80b60f7919dda358501/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail-rack/test_coverage) [![CircleCI](https://circleci.com/gh/truemail-rb/truemail-rack.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-rack) [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d80b60f7919dda358501/maintainability)](https://codeclimate.com/github/truemail-rb/truemail-rack/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d80b60f7919dda358501/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail-rack/test_coverage) [![CircleCI](https://circleci.com/gh/truemail-rb/truemail-rack.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-rack) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/truemail-rb/truemail-rack)](https://github.com/truemail-rb/truemail-rack/releases) [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![GitHub](https://img.shields.io/github/license/truemail-rb/truemail-rack)](LICENSE.txt) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 ***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://github.com/rubygarage/truemail). Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
 
@@ -45,10 +45,11 @@ Before run application you must configure it first. List of available env vars n
 | `RESPONSE_TIMEOUT` | `1` | - | A SMTP server response timeout is equal to `2` ms by default. |
 | `CONNECTION_ATTEMPTS` | `3` | - | Total of connection attempts. It is equal to `2` by default. This parameter uses in mx lookup timeout error and smtp request (for cases when there is one mx server). |
 | `DEFAULT_VALIDATION_TYPE` | `mx` | - |  You can predefine Truemail default validation type (`smtp`). Available validation types: [`regex`](https://github.com/rubygarage/truemail#regex-validation), [`mx`](https://github.com/rubygarage/truemail#mx-validation), [`smtp`](https://github.com/rubygarage/truemail#smtp-validation). |
-| `VALIDATION_TYPE_FOR` | `somedomain.com:regex` | - | You can predefine which type of validation will be used for domains. Available validation types: `regex`, `mx`, `smtp`. This configuration will be used over `DEFAULT_VALIDATION_TYPE`. All of validations for `somedomain.com` will be processed with `regex` validation only. Accepts one ore more key:value separated by commas. |
+| `VALIDATION_TYPE_FOR` | `somedomain.com:regex` | - | You can predefine which type of validation will be used for domains. Available validation types: `regex`, `mx`, `smtp`. This configuration will be used over `DEFAULT_VALIDATION_TYPE`. All of validations for `somedomain.com` will be processed with `regex` validation only. Accepts one or more key:value separated by commas. |
 | `WHITELISTED_DOMAINS` | `somedomain1.com` | - | Validation of email which [contains whitelisted domain](https://github.com/rubygarage/truemail#whitelist-case) always will return `true`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
 | `WHITELIST_VALIDATION` | `true` | - | With this option Truemail will validate email which [contains whitelisted domain only](https://github.com/rubygarage/truemail#whitelist-validation-case), i.e. if domain whitelisted, validation will passed to Regex, MX or SMTP validators. Validation of email which not contains whitelisted domain always will return `false`. It is equal `false` by default. |
 | `BLACKLISTED_DOMAINS` | `somedomain2.com` | - | Validation of email which [contains blacklisted domain](https://github.com/rubygarage/truemail#blacklist-case) always will return `false`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
+| `NOT_RFC_MX_LOOKUP_FLOW` | `true` | - | This option will provide to use not RFC MX lookup flow. It means that MX and Null MX records will be cheked on the DNS validation layer only. By default [this option is disabled](https://github.com/rubygarage/truemail#not-rfc-mx-lookup-flow). |
 | `SMTP_SAFE_CHECK` | `true` | - | This option will be parse bodies of SMTP errors. It will be helpful if SMTP server does not return an exact answer that the email does not exist. By default [this option is disabled](https://github.com/rubygarage/truemail#smtp-safe-check-disabled), available for SMTP validation only. |
 | `LOG_STDOUT` | `true`  | - | This option will be enable log all http requests to stdout. By default this option is disabled. |
 
@@ -76,6 +77,7 @@ VALIDATION_TYPE_FOR=somedomain1.com:regex,somedomain2.com:mx \
 WHITELISTED_DOMAINS=somedomain3.com \
 WHITELIST_VALIDATION=true \
 BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
+NOT_RFC_MX_LOOKUP_FLOW=true \
 SMTP_SAFE_CHECK=true \
 LOG_STDOUT=true \
 thin -R config.ru -a 0.0.0.0 -p 9292 -e production start
@@ -113,6 +115,7 @@ Server: thin
     "whitelist_validation": false,
     "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "not_rfc_mx_lookup_flow": false,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value"
@@ -137,6 +140,7 @@ Server: thin
       "blacklisted_domains": null,
       "email_pattern": "default gem value",
       "smtp_error_body_pattern": "default gem value",
+      "not_rfc_mx_lookup_flow": false,
       "smtp_safe_check": true,
       "validation_type_by_domain": null,
       "whitelist_validation": false,
@@ -166,13 +170,13 @@ Server: thin
 
 All Truemail extensions: https://github.com/truemail-rb
 
-### truemail
-
-gem `truemail` - configurable framework agnostic plain Ruby email validator, https://github.com/rubygarage/truemail
-
-### truemail-rspec
-
-gem `truemail-rspec` - Truemail configuration and validator RSpec helpers, https://github.com/truemail-rb/truemail-rspec
+| Name | Type | Description |
+| --- | --- | --- |
+| [truemail](https://github.com/rubygarage/truemail) | ruby gem | Configurable framework agnostic plain Ruby email validator, main core |
+| [truemail-rack-docker](https://github.com/truemail-rb/truemail-rack-docker-image) | docker image | Lightweight rack based web API [dockerized image](https://hub.docker.com/r/truemail/truemail-rack) :whale: of Truemail server |
+| [truemail-ruby-client](https://github.com/truemail-rb/truemail-ruby-client) | ruby gem | Truemail web API client library for Ruby |
+| [truemail-crystal-client](https://github.com/truemail-rb/truemail-crystal-client) | crystal shard | Truemail web API client library for Crystal |
+| [truemail-rspec](https://github.com/truemail-rb/truemail-rspec) | ruby gem | Truemail configuration and validator RSpec helpers |
 
 ## Contributing
 
@@ -180,7 +184,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/truema
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This application is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
