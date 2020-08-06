@@ -26,7 +26,7 @@ module TruemailServer
         { error: message }.to_json
       end
 
-      def respond_with(object, status)
+      def respond_with(status, object = nil)
         [object, status, CONTENT_TYPE]
       end
     end

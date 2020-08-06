@@ -12,6 +12,9 @@
   - [Simple configuration example](#simple-configuration-example)
   - [Advanced configuration example](#advanced-configuration-example)
   - [Request/response example](#requestresponse-example)
+      - [Existent email](#existent-email)
+      - [Nonexistent email](#nonexistent-email)
+      - [Healthcheck](#healthcheck)
 - [Truemail family](#truemail-family)
 - [Contributing](#contributing)
 - [License](#license)
@@ -100,7 +103,8 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Au
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
-Connection: close
+Content-Length: 410
+Connection: keep-alive
 Server: thin
 
 {
@@ -132,7 +136,8 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Au
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
-Connection: close
+Content-Length: 541
+Connection: keep-alive
 Server: thin
 
 {
@@ -164,6 +169,20 @@ Server: thin
     "whitelisted_domains": null
   }
 }
+```
+
+#### Healthcheck
+
+```bash
+curl -i http://localhost:9292/healthcheck
+```
+
+```json
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 0
+Connection: keep-alive
+Server: thin
 ```
 
 ## Truemail family

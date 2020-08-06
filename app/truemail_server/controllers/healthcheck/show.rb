@@ -2,12 +2,10 @@
 
 module TruemailServer
   module Controllers
-    module Error
+    module Healthcheck
       class Show < TruemailServer::Controllers::Base
-        NOT_FOUND = 'resource not found'
-
         def call
-          respond_with(404, error(NOT_FOUND))
+          respond_with(200)
         end
       end
     end
