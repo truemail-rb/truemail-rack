@@ -21,6 +21,7 @@ module TruemailServer
     class Resolver
       def self.call(resource)
         return TruemailServer::Controllers::Validator::Show if resource.eql?('/')
+        return TruemailServer::Controllers::Healthcheck::Show if resource.eql?('/healthcheck')
 
         TruemailServer::Controllers::Error::Show
       end

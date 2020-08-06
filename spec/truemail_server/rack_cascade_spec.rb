@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'TruemailServer::RackCascade' do # rubocop:disable RSpec/DescribeClass
+RSpec.describe 'TruemailServer::RackCascade' do
   subject(:rack_cascade) { TruemailServer::RackCascade }
 
   context 'when LOG_STDOUT false' do

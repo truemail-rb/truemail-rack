@@ -11,9 +11,16 @@ RSpec.describe TruemailServer::Router do
         end
       end
 
-      context 'when resource found in permitted routes' do
+      context 'when home resource found in permitted routes' do
         let(:resource) { '/' }
         let(:controller_class) { TruemailServer::Controllers::Validator::Show }
+
+        include_examples 'assigns a route'
+      end
+
+      context 'when healthcheck resource found in permitted routes' do
+        let(:resource) { '/healthcheck' }
+        let(:controller_class) { TruemailServer::Controllers::Healthcheck::Show }
 
         include_examples 'assigns a route'
       end
@@ -30,16 +37,22 @@ RSpec.describe TruemailServer::Router do
   describe '.call' do
     subject(:router) do
       described_class.call(
-        create_rack_request(path: path, params: { 'a' => 42 }, env: { 'KEY' => 42, 'HTTP_AUTHORIZATION' => 'token' })
+        create_rack_request(
+          path: path,
+          params: params,
+          env: { 'KEY' => 42 }.merge(headers)
+        )
       )
     end
 
     let(:path) { 'path' }
     let(:controller) { ->(request_data) { request_data } }
+    let(:params) { { 'a' => 42 } }
+    let(:headers) { { 'HTTP_AUTHORIZATION' => 'token' } }
 
     it 'processes params and proxies request data to controller' do
       expect(TruemailServer::Router::Resolver).to receive(:call).with(path).and_return(controller)
-      expect(router).to eq(params: { a: 42 }, headers: { 'HTTP_AUTHORIZATION' => 'token' })
+      expect(router).to eq(params: params.transform_keys(&:to_sym), headers: headers)
     end
   end
 end
