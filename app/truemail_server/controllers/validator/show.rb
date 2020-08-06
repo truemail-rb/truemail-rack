@@ -9,10 +9,10 @@ module TruemailServer
 
         def call
           token, email = headers['HTTP_AUTHORIZATION'], params[:email]
-          return respond_with(error(ACCESS_ERROR), 401) unless TruemailServer::Services::AccessToken.validate(token)
-          return respond_with(error(ATTRIBUTE_ERROR), 422) unless email
+          return respond_with(401, error(ACCESS_ERROR)) unless TruemailServer::Services::AccessToken.validate(token)
+          return respond_with(422, error(ATTRIBUTE_ERROR)) unless email
 
-          respond_with(TruemailServer::Services::EmailValidator.call(email), 200)
+          respond_with(200, TruemailServer::Services::EmailValidator.call(email))
         end
       end
     end
