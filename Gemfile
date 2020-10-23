@@ -7,7 +7,7 @@ ruby(File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip[/-(.+)/
 gem 'dry-struct', '~> 1.3'
 gem 'rack', '~> 2.2', '>= 2.2.3'
 gem 'thin', '~> 1.7', '>= 1.7.2'
-gem 'truemail', '~> 1.8'
+gem 'truemail', '~> 2.0', '>= 2.0.1'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.9'
