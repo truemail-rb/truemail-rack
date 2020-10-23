@@ -1,8 +1,8 @@
-# <img src='https://repository-images.githubusercontent.com/219712903/d41c8600-53d5-11ea-9fb1-9e1b89784329' height='250' alt='Truemail server - lightweight rack based web API' />
+# ![Truemail server - lightweight rack based web API](https://truemail-rb.org/assets/images/truemail_logo.png)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/d80b60f7919dda358501/maintainability)](https://codeclimate.com/github/truemail-rb/truemail-rack/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/d80b60f7919dda358501/test_coverage)](https://codeclimate.com/github/truemail-rb/truemail-rack/test_coverage) [![CircleCI](https://circleci.com/gh/truemail-rb/truemail-rack.svg?style=svg)](https://circleci.com/gh/truemail-rb/truemail-rack) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/truemail-rb/truemail-rack)](https://github.com/truemail-rb/truemail-rack/releases) [![Gitter](https://badges.gitter.im/truemail-rb/community.svg)](https://gitter.im/truemail-rb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) [![GitHub](https://img.shields.io/github/license/truemail-rb/truemail-rack)](LICENSE.txt) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://github.com/rubygarage/truemail). Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
+***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://github.com/truemail-rb/truemail). Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
 
 ## Table of Contents
 
@@ -12,9 +12,9 @@
   - [Simple configuration example](#simple-configuration-example)
   - [Advanced configuration example](#advanced-configuration-example)
   - [Request/response example](#requestresponse-example)
-      - [Existent email](#existent-email)
-      - [Nonexistent email](#nonexistent-email)
-      - [Healthcheck](#healthcheck)
+    - [Existent email](#existent-email)
+    - [Nonexistent email](#nonexistent-email)
+    - [Healthcheck](#healthcheck)
 - [Truemail family](#truemail-family)
 - [Contributing](#contributing)
 - [License](#license)
@@ -191,7 +191,7 @@ All Truemail extensions: https://github.com/truemail-rb
 
 | Name | Type | Description |
 | --- | --- | --- |
-| [truemail](https://github.com/rubygarage/truemail) | ruby gem | Configurable framework agnostic plain Ruby email validator, main core |
+| [truemail](https://github.com/truemail-rb/truemail) | ruby gem | Configurable framework agnostic plain Ruby email validator, main core |
 | [truemail-rack-docker](https://github.com/truemail-rb/truemail-rack-docker-image) | docker image | Lightweight rack based web API [dockerized image](https://hub.docker.com/r/truemail/truemail-rack) :whale: of Truemail server |
 | [truemail-ruby-client](https://github.com/truemail-rb/truemail-ruby-client) | ruby gem | Truemail web API client library for Ruby |
 | [truemail-crystal-client](https://github.com/truemail-rb/truemail-crystal-client) | crystal shard | Truemail web API client library for Crystal |
