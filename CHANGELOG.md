@@ -31,7 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Ability to use [not RFC MX lookup flow](https://github.com/rubygarage/truemail#not-rfc-mx-lookup-flow)
+- Ability to use [not RFC MX lookup flow](https://github.com/truemail-rb/truemail#not-rfc-mx-lookup-flow)
 
 ### Changed
 
