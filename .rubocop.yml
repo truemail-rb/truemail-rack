@@ -73,6 +73,27 @@ Style/SlicingWithRange:
 Style/StringConcatenation:
   Enabled: true
 
+Style/ArgumentsForwarding:
+  Enabled: true
+
+Style/CollectionCompact:
+  Enabled: true
+
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+
+Style/NegatedIfElseCondition:
+  Enabled: true
+
+Style/NilLambda:
+  Enabled: true
+
+Style/RedundantArgument:
+  Enabled: true
+
+Style/SwapValues:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -171,6 +192,27 @@ Lint/TopLevelReturnWithArgument:
 Lint/UnreachableLoop:
   Enabled: true
 
+Lint/DuplicateBranch:
+  Enabled: true
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+
+Lint/EmptyClass:
+  Enabled: true
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+
+Lint/ToEnumArguments:
+  Enabled: true
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
 # Performance -----------------------------------------------------------------
 
 Performance/AncestorsInclude:
@@ -197,6 +239,24 @@ Performance/Squeeze:
 Performance/StringInclude:
   Enabled: true
 
+Performance/ArraySemiInfiniteRangeSlice:
+  Enabled: true
+
+Performance/BlockGivenWithExplicitBlock:
+  Enabled: true
+
+Performance/CollectionLiteralInLoop:
+  Enabled: true
+
+Performance/ConstantRegexp:
+  Enabled: true
+
+Performance/MethodObjectAsBlock:
+  Enabled: true
+
+Performance/Sum:
+  Enabled: true
+
 # RSpec -----------------------------------------------------------------------
 
 RSpec/MultipleExpectations:
@@ -213,3 +273,6 @@ RSpec/MessageChain:
 
 RSpec/NestedGroups:
   Max: 5
+
+RSpec/StubbedMock:
+  Enabled: false
