@@ -3,7 +3,8 @@
 require 'truemail'
 
 Truemail.configure do |config|
+  truemail_core_params = System::Configuration::COMMAND_LINE_ATTRS[0...-2]
   System::Configuration.command_line_params
-    .reject { |key, _| %i[access_tokens log_stdout].include?(key) }
+    .slice(*truemail_core_params)
     .each { |key, value| config.public_send("#{key}=", value) }
 end
