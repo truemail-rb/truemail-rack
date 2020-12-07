@@ -213,6 +213,9 @@ Lint/ToEnumArguments:
 Lint/UnmodifiedReduceAccumulator:
   Enabled: true
 
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
 # Performance -----------------------------------------------------------------
 
 Performance/AncestorsInclude:
