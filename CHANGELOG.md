@@ -2,6 +2,16 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.8] - 2020-12-11
+
+- Ability to use [SMTP fail fast flow](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled)
+
+### Changed
+
+- Updated application dependencies
+- Updated application documentation
+- Updated application version
+
 ## [0.2.7] - 2020-12-07
 
 ### Changed
@@ -47,7 +57,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Ability to use [not RFC MX lookup flow](https://github.com/truemail-rb/truemail#not-rfc-mx-lookup-flow)
+- Ability to use [not RFC MX lookup flow](https://truemail-rb.org/truemail-gem/#/validations-layers?id=not-rfc-mx-lookup-flow)
 
 ### Changed
 
