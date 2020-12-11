@@ -19,6 +19,7 @@ module System
       whitelist_validation
       blacklisted_domains
       not_rfc_mx_lookup_flow
+      smtp_fail_fast
       smtp_safe_check
       access_tokens
       log_stdout
