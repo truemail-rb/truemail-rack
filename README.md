@@ -90,6 +90,7 @@ WHITELISTED_DOMAINS=somedomain3.com \
 WHITELIST_VALIDATION=true \
 BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
 NOT_RFC_MX_LOOKUP_FLOW=true \
+SMTP_FAIL_FAST=true \
 SMTP_SAFE_CHECK=true \
 LOG_STDOUT=true \
 thin -R config.ru -a 0.0.0.0 -p 9292 -e production start
@@ -129,6 +130,7 @@ Server: thin
     "whitelisted_domains": null,
     "blacklisted_domains": null,
     "not_rfc_mx_lookup_flow": false,
+    "smtp_fail_fast": false,
     "smtp_safe_check": false,
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value"
@@ -172,6 +174,7 @@ Server: thin
     "email_pattern": "default gem value",
     "smtp_error_body_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
+    "smtp_fail_fast": false,
     "smtp_safe_check": true,
     "validation_type_by_domain": null,
     "whitelist_validation": false,
