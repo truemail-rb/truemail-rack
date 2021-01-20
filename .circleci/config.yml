@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/truemail-server
   docker:
-    - image: circleci/ruby:2.6.5-node
+    - image: circleci/ruby:2.6.6-node
   environment:
     CC_TEST_REPORTER_ID: 2660931318841b527cd9d96fe9ad03e3b14f4e4f5b899d90246230120c70cffa
 
