@@ -94,6 +94,12 @@ Style/RedundantArgument:
 Style/SwapValues:
   Enabled: true
 
+Style/EndlessMethod:
+  Enabled: true
+
+Style/HashExcept:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -121,6 +127,9 @@ Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
 Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Layout/SpaceBeforeBrackets:
   Enabled: true
 
 Naming/AccessorMethodName:
@@ -214,6 +223,18 @@ Lint/UnmodifiedReduceAccumulator:
   Enabled: true
 
 Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Lint/AmbiguousAssignment:
+  Enabled: true
+
+Lint/DeprecatedConstants:
+  Enabled: true
+
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true
+
+Lint/RedundantDirGlobSort:
   Enabled: true
 
 # Performance -----------------------------------------------------------------
