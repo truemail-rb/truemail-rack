@@ -2,6 +2,14 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.9] - 2021-01-20
+
+### Changed
+
+- Updated application dependencies (truemail 2.2.3)
+- Updated Ruby version to 2.6.6
+- Updated application version
+
 ## [0.2.8] - 2020-12-11
 
 - Ability to use [SMTP fail fast flow](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled)
