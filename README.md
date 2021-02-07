@@ -89,6 +89,7 @@ VALIDATION_TYPE_FOR=somedomain1.com:regex,somedomain2.com:mx \
 WHITELISTED_DOMAINS=somedomain3.com \
 WHITELIST_VALIDATION=true \
 BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
+DNS=8.8.8.8,8.8.4.4:53 \
 NOT_RFC_MX_LOOKUP_FLOW=true \
 SMTP_FAIL_FAST=true \
 SMTP_SAFE_CHECK=true \
@@ -118,22 +119,23 @@ Connection: keep-alive
 Server: thin
 
 {
-  "date": "2020-02-26 17:00:56 +0200",
+  "date": "2021-02-07 10:00:56 +0200",
   "email": "admin@bestweb.com.ua",
   "validation_type": "smtp",
   "success": true,
   "errors": null,
   "smtp_debug": null,
   "configuration": {
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "dns": null,
+    "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
+    "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
     "smtp_safe_check": false,
-    "email_pattern": "default gem value",
-    "smtp_error_body_pattern": "default gem value"
+    "validation_type_by_domain": null,
+    "whitelist_validation": false,
+    "whitelisted_domains": null
   }
 }
 ```
@@ -152,7 +154,7 @@ Connection: keep-alive
 Server: thin
 
 {
-  "date": "2020-05-10 20:00:00 +0000",
+  "date": "2021-02-07 10:10:42 +0200",
   "email": "ololo@bestweb.com.ua",
   "validation_type": "smtp",
   "success": false,
@@ -171,11 +173,12 @@ Server: thin
   ],
   "configuration": {
     "blacklisted_domains": null,
+    "dns": null,
     "email_pattern": "default gem value",
-    "smtp_error_body_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
+    "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
-    "smtp_safe_check": true,
+    "smtp_safe_check": false,
     "validation_type_by_domain": null,
     "whitelist_validation": false,
     "whitelisted_domains": null

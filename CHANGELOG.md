@@ -2,6 +2,18 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.10] - 2021-02-07
+
+### Added
+
+- Ability to use [custom DNS gateway](https://github.com/truemail-rb/truemail/releases/tag/v2.3.0)
+
+### Changed
+
+- Updated application dependencies (truemail 2.3.0)
+- Updated development dependencies
+- Updated application version
+
 ## [0.2.9] - 2021-01-20
 
 ### Changed
