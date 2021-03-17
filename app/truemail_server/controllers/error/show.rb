@@ -7,7 +7,7 @@ module TruemailServer
         NOT_FOUND = 'resource not found'
 
         def call
-          respond_with(404, error(NOT_FOUND))
+          respond_with(404, error(TruemailServer::Controllers::Error::Show::NOT_FOUND))
         end
       end
     end

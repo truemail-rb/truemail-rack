@@ -27,7 +27,7 @@ module TruemailServer
       end
 
       def respond_with(status, object = nil)
-        [object, status, CONTENT_TYPE]
+        [object, status, TruemailServer::Controllers::Base::CONTENT_TYPE]
       end
     end
   end
