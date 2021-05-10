@@ -16,6 +16,7 @@ module System
     attribute :whitelisted_domains, System::Types::StringToArray.optional
     attribute :whitelist_validation, System::Types::Params::Bool.optional
     attribute :blacklisted_domains, System::Types::StringToArray.optional
+    attribute :blacklisted_mx_ip_addresses, System::Types::StringToArray.optional
     attribute :dns, System::Types::StringToArray.optional
     attribute :not_rfc_mx_lookup_flow, System::Types::Params::Bool.optional
     attribute :smtp_fail_fast, System::Types::Params::Bool.optional
