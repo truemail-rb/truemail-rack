@@ -16,7 +16,7 @@ RSpec.describe System::Configuration do
     subject(:command_line_params) { described_class.command_line_params }
 
     context 'when command line params valid' do
-      it { expect(command_line_params).to be_an_instance_of(Hash) }
+      it { expect(command_line_params).to be_an_instance_of(::Hash) }
 
       it 'depends from actual env vars count' do
         expect(command_line_params.size).to eq(ENV_VARS.size)
