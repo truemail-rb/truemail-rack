@@ -2,6 +2,19 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.12] - 2021-05-10
+
+- Ability to use [MxBlacklist validation layer](https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-blacklist-validation)
+
+### Changed
+
+- Updated `System::CommandLineParams`
+- Updated `System::Configuration::COMMAND_LINE_ATTRS`
+- Updated `Truemail` to latest version (2.4.1)
+- Updated runtime/development dependencies
+- Updated rubocop/codeclimate configs
+- Updated application readme, version, changelog
+
 ## [0.2.11] - 2021-03-24
 
 ### Changed
