@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/github/license/truemail-rb/truemail-rack)](LICENSE.txt)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://truemail-rb.org/truemail-gem) gem. Verify email via Regex, DNS and SMTP. Be sure that email address valid and exists.
+***Truemail server*** - lightweight rack based web API wrapper for [Truemail](https://truemail-rb.org/truemail-gem) gem. Verify email via Regex, DNS, SMTP and even more. Be sure that email address valid and exists.
 
 > Actual and maintainable documentation :books: for developers is living [here](https://truemail-rb.org/truemail-rack).
 
@@ -63,9 +63,9 @@ Before run application you must configure it first. List of available env vars n
 | `BLACKLISTED_MX_IP_ADDRESSES` | `127.0.1.1,127.0.1.2` | - | With this option Truemail will filter out unwanted mx servers via predefined list of ip addresses. It can be used as a part of DEA (disposable email address) validations. Accepts one ore more values separated by commas.
 | `DNS` | `8.8.8.8,8.8.4.4:53` | - | This option will provide to use custom DNS gateway when Truemail interacts with DNS. If you won't specify nameserver's ports Truemail will use default DNS TCP/UDP port 53. Accepts one ore more values separated by commas. By default Truemail uses DNS gateway from system settings.
 | `NOT_RFC_MX_LOOKUP_FLOW` | `true` | - | This option will provide to use not RFC MX lookup flow. It means that MX and Null MX records will be cheked on the DNS validation layer only. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=not-rfc-mx-lookup-flow). |
-| `SMTP_FAIL_FAST` | `true` | - | This option will provide to use SMTP fail fast behaviour. When [smtp_fail_fast is enabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled) it means that truemail ends smtp validation session after first attempt on the first mx server in any fail cases (network connection/timeout error, smtp validation error). By default this option is disabled, available for SMTP validation only. |
+| `SMTP_FAIL_FAST` | `true` | - | This option will provide to use SMTP fail fast behaviour. When [smtp_fail_fast is enabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled) it means that Truemail ends smtp validation session after first attempt on the first mx server in any fail cases (network connection/timeout error, smtp validation error). By default this option is disabled, available for SMTP validation only. |
 | `SMTP_SAFE_CHECK` | `true` | - | This option will be parse bodies of SMTP errors. It will be helpful if SMTP server does not return an exact answer that the email does not exist. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-safe-check-disabled), available for SMTP validation only. |
-| `LOG_STDOUT` | `true`  | - | This option will be enable log all http requests to stdout. By default this option is disabled. |
+| `LOG_STDOUT` | `true` | - | This option will be enable log all http requests to stdout. By default this option is disabled. |
 
 Run Truemail server with command as in example below:
 
