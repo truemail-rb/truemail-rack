@@ -2,6 +2,15 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.13] - 2021-05-17
+
+### Changed
+
+- Updated application dependencies (truemail 2.4.2)
+- Updated development dependencies
+- Updated application version
+- Updated CircleCI config
+
 ## [0.2.12] - 2021-05-10
 
 - Ability to use [MxBlacklist validation layer](https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-blacklist-validation)
