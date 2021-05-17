@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/truemail-server
   docker:
-    - image: circleci/ruby:2.6.6-node
+    - image: cimg/ruby:2.6.6
   environment:
     CC_TEST_REPORTER_ID: 2660931318841b527cd9d96fe9ad03e3b14f4e4f5b899d90246230120c70cffa
 
@@ -29,7 +29,7 @@ references:
 
   install_codeclimate_reporter: &install_codeclimate_reporter
     run:
-      name: Install Code Climate Test Reporter
+      name: Installing CodeClimate test reporter
       command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
@@ -48,7 +48,7 @@ jobs:
       - <<: *save_bundle_cache
 
       - run:
-          name: Running overcommit
+          name: Running Overcommit
           command: |
             bundle exec overcommit -s
             SKIP=AuthorEmail,AuthorName bundle exec overcommit -r
@@ -66,25 +66,23 @@ jobs:
       - <<: *install_codeclimate_reporter
 
       - run:
-          name: Running tests
+          name: Running RSpec
           command: |
-            mkdir /tmp/test-results
             ./cc-test-reporter before-build
             bundle exec rspec
 
       - run:
-          name: Code Climate Test Coverage
+          name: Creating CodeClimate test coverage report
           command: |
             ./cc-test-reporter format-coverage -t simplecov -o "coverage/codeclimate.$CIRCLE_NODE_INDEX.json"
 
-      - store_test_results:
-          path: /tmp/test-results
-
       - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          name: Saving Simplecov coverage artifacts
+          path: ~/truemail-server/coverage
+          destination: coverage
 
       - deploy:
+          name: Uploading CodeClimate test coverage report
           command: |
             ./cc-test-reporter sum-coverage --output - --parts $CIRCLE_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
 
