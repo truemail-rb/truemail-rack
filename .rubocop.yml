@@ -109,6 +109,15 @@ Style/HashConversion:
 Style/StringChars:
   Enabled: true
 
+Style/InPatternThen:
+  Enabled: true
+
+Style/MultilineInPatternThen:
+  Enabled: true
+
+Style/QuotedSymbols:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -141,7 +150,13 @@ Layout/SpaceAroundMethodCallOperator:
 Layout/SpaceBeforeBrackets:
   Enabled: true
 
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+
 Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/InclusiveLanguage:
   Enabled: false
 
 Layout/ClassStructure:
@@ -258,6 +273,9 @@ Lint/SymbolConversion:
 Lint/TripleQuotes:
   Enabled: true
 
+Lint/EmptyInPattern:
+  Enabled: true
+
 Gemspec/DateAssignment:
   Enabled: true
 
@@ -333,3 +351,9 @@ RSpec/NestedGroups:
 
 RSpec/StubbedMock:
   Enabled: false
+
+RSpec/IdenticalEqualityAssertion:
+  Enabled: true
+
+RSpec/Rails/AvoidSetupHook:
+  Enabled: true
