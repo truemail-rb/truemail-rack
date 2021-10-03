@@ -118,6 +118,18 @@ Style/MultilineInPatternThen:
 Style/QuotedSymbols:
   Enabled: true
 
+Style/NumberedParameters:
+  Enabled: true
+
+Style/NumberedParametersLimit:
+  Enabled: true
+
+Style/RedundantSelfAssignmentBranch:
+  Enabled: true
+
+Style/SelectByRegexp:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -276,7 +288,22 @@ Lint/TripleQuotes:
 Lint/EmptyInPattern:
   Enabled: true
 
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: true
+
+Lint/AmbiguousRange:
+  Enabled: true
+
+Lint/IncompatibleIoSelectWithFiberScheduler:
+  Enabled: true
+
+Lint/RequireRelativeSelfPath:
+  Enabled: true
+
 Gemspec/DateAssignment:
+  Enabled: true
+
+Security/IoMethods:
   Enabled: true
 
 # Performance -----------------------------------------------------------------
@@ -353,6 +380,12 @@ RSpec/StubbedMock:
   Enabled: false
 
 RSpec/IdenticalEqualityAssertion:
+  Enabled: true
+
+RSpec/ExcessiveDocstringSpacing:
+  Enabled: true
+
+RSpec/SubjectDeclaration:
   Enabled: true
 
 RSpec/Rails/AvoidSetupHook:
