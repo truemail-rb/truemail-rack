@@ -359,6 +359,9 @@ Performance/RedundantSplitRegexpArgument:
 Performance/MapCompact:
   Enabled: true
 
+Performance/ConcurrentMonotonicTime:
+  Enabled: true
+
 # RSpec -----------------------------------------------------------------------
 
 RSpec/MultipleExpectations:
