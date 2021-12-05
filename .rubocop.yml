@@ -130,6 +130,9 @@ Style/RedundantSelfAssignmentBranch:
 Style/SelectByRegexp:
   Enabled: true
 
+Style/OpenStructUse:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -300,8 +303,14 @@ Lint/IncompatibleIoSelectWithFiberScheduler:
 Lint/RequireRelativeSelfPath:
   Enabled: true
 
+Lint/UselessRuby2Keywords:
+  Enabled: true
+
 Gemspec/DateAssignment:
   Enabled: true
+
+Gemspec/RequireMFA:
+  Enabled: false
 
 Security/IoMethods:
   Enabled: true
