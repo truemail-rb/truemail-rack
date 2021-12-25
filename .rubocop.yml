@@ -133,6 +133,15 @@ Style/SelectByRegexp:
 Style/OpenStructUse:
   Enabled: true
 
+Style/FileRead:
+  Enabled: true
+
+Style/FileWrite:
+  Enabled: true
+
+Style/MapToHash:
+  Enabled: true
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:
@@ -173,6 +182,9 @@ Naming/AccessorMethodName:
 
 Naming/InclusiveLanguage:
   Enabled: false
+
+Naming/BlockForwarding:
+  Enabled: true
 
 Layout/ClassStructure:
   Enabled: true
@@ -369,6 +381,9 @@ Performance/MapCompact:
   Enabled: true
 
 Performance/ConcurrentMonotonicTime:
+  Enabled: true
+
+Performance/StringIdentifierArgument:
   Enabled: true
 
 # RSpec -----------------------------------------------------------------------

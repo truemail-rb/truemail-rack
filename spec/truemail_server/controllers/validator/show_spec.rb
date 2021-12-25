@@ -3,7 +3,9 @@
 RSpec.describe TruemailServer::Controllers::Validator::Show do
   describe 'defined constants' do
     it { expect(described_class).to be_const_defined(:ACCESS_ERROR) }
+    it { expect(described_class).to be_const_defined(:AUTHORIZATION_HEADER) }
     it { expect(described_class).to be_const_defined(:ATTRIBUTE_ERROR) }
+    it { expect(described_class).to be_const_defined(:CONTENT_TYPE) }
   end
 
   describe 'inherited from' do
@@ -15,10 +17,10 @@ RSpec.describe TruemailServer::Controllers::Validator::Show do
 
     let(:params) { { email: email } }
     let(:email) { nil }
-    let(:headers) { { 'HTTP_AUTHORIZATION' => token } }
+    let(:headers) { { TruemailServer::Controllers::Base::AUTHORIZATION_HEADER => token } }
     let(:token) { 'some_access_token' }
 
-    context 'when access token not found in headers' do
+    context 'when access token not found in headers or invalid' do
       it do
         expect(TruemailServer::Services::AccessToken).to receive(:validate).with(token).and_return(false)
         expect(controller).to eq(

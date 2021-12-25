@@ -31,7 +31,7 @@ module System
       def command_line_params
         @command_line_params ||=
           System::CommandLineParams.new(
-            System::Configuration::COMMAND_LINE_ATTRS.map { |key| [key, ENV[key.to_s.upcase]] }.to_h
+            System::Configuration::COMMAND_LINE_ATTRS.to_h { |key| [key, ENV[key.to_s.upcase]] }
           ).to_h.compact
       rescue Dry::Struct::Error
         raise System::Configuration::Error, System::Configuration::INVALID_COMMAND_LINE_PARAMS
