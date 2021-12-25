@@ -22,6 +22,7 @@
   - [Request/response example](#requestresponse-example)
     - [Existent email](#existent-email)
     - [Nonexistent email](#nonexistent-email)
+    - [Version](#version)
     - [Healthcheck](#healthcheck)
 - [Truemail family](#truemail-family)
 - [Contributing](#contributing)
@@ -188,6 +189,26 @@ Server: thin
     "whitelist_validation": false,
     "whitelisted_domains": null
   }
+}
+```
+
+#### Version
+
+```bash
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: a262d915-15bc-417c-afeb-842c63b54154" http://localhost:9292/version
+```
+
+```json
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 108
+Content-Type: application/json
+Server: thin
+
+{
+  "core": "2.5.4",
+  "platform": "ruby 2.6.6p146 (2020-03-31 revision 67876) [x86_64-darwin19]",
+  "version": "0.3.0"
 }
 ```
 
