@@ -19,8 +19,8 @@ group :development, :test do
   gem 'fasterer', '~> 0.9.0', require: false
   gem 'overcommit', '~> 0.58.0', require: false
   gem 'reek', '~> 6.0', '>= 6.0.6', require: false
-  gem 'rubocop', '~> 1.23', require: false
-  gem 'rubocop-performance', '~> 1.12', require: false
+  gem 'rubocop', '~> 1.24', require: false
+  gem 'rubocop-performance', '~> 1.13', require: false
   gem 'rubocop-rspec', '~> 2.6', require: false
 end
 

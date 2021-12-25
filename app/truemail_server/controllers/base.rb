@@ -5,6 +5,8 @@ module TruemailServer
     class Base
       require 'json'
 
+      ACCESS_ERROR = 'invalid truemail access token'
+      AUTHORIZATION_HEADER = 'HTTP_AUTHORIZATION'
       CONTENT_TYPE = { 'Content-Type' => 'application/json' }.freeze
 
       def self.call(**args)
@@ -28,6 +30,12 @@ module TruemailServer
 
       def respond_with(status, object = nil)
         [object, status, TruemailServer::Controllers::Base::CONTENT_TYPE]
+      end
+
+      def token_valid?
+        TruemailServer::Services::AccessToken.validate(
+          headers[TruemailServer::Controllers::Base::AUTHORIZATION_HEADER]
+        )
       end
     end
   end
