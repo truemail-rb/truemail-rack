@@ -2,6 +2,12 @@ require:
   - rubocop-rspec
   - rubocop-performance
 
+
+AllCops:
+  DisplayCopNames:    true
+  DisplayStyleGuide:  true
+  TargetRubyVersion:  3.1
+
 # Style -----------------------------------------------------------------------
 
 Style/Documentation:
@@ -416,4 +422,7 @@ RSpec/SubjectDeclaration:
   Enabled: true
 
 RSpec/Rails/AvoidSetupHook:
+  Enabled: true
+
+RSpec/FactoryBot/SyntaxMethods:
   Enabled: true
