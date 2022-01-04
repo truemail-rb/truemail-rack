@@ -6,7 +6,7 @@ RSpec.describe TruemailServer::Controllers::Version::Show do
   end
 
   describe '.call' do
-    subject(:controller) { described_class.call(params: {}, headers: headers) }
+    subject(:controller) { described_class.call(params: {}, headers:) }
 
     let(:email) { nil }
     let(:headers) { { TruemailServer::Controllers::Base::AUTHORIZATION_HEADER => token } }

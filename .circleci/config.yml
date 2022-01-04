@@ -1,9 +1,7 @@
 defaults: &defaults
   working_directory: ~/truemail-server
   docker:
-    - image: cimg/ruby:2.6.6
-  environment:
-    CC_TEST_REPORTER_ID: 2660931318841b527cd9d96fe9ad03e3b14f4e4f5b899d90246230120c70cffa
+    - image: cimg/ruby:3.1.0
 
 references:
   install_bundler: &install_bundler
@@ -19,7 +17,9 @@ references:
   bundle_install: &bundle_install
     run:
       name: Installing gems
-      command: bundle install --path vendor/bundle
+      command: |
+            bundle config set --local path 'vendor/bundle'
+            bundle install
 
   save_bundle_cache: &save_bundle_cache
     save_cache:

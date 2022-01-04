@@ -5,7 +5,7 @@ RSpec.describe TruemailServer::Application do
     subject(:rack_app) { described_class.call(env) }
 
     let(:env) { {} }
-    let(:rack_request_instance) { create_rack_request(env) }
+    let(:rack_request_instance) { create_rack_request(**env) }
     let(:controller_response) { %i[a b c] }
     let(:rack_response) { [200, {}, []] }
     let(:rack_response_instance) { create_rack_response(finish: rack_response) }

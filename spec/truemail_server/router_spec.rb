@@ -38,8 +38,8 @@ RSpec.describe TruemailServer::Router do
     subject(:router) do
       described_class.call(
         create_rack_request(
-          path: path,
-          params: params,
+          path:,
+          params:,
           env: { 'KEY' => 42 }.merge(headers)
         )
       )
@@ -52,7 +52,7 @@ RSpec.describe TruemailServer::Router do
 
     it 'processes params and proxies request data to controller' do
       expect(TruemailServer::Router::Resolver).to receive(:call).with(path).and_return(controller)
-      expect(router).to eq(params: params.transform_keys(&:to_sym), headers: headers)
+      expect(router).to eq(params: params.transform_keys(&:to_sym), headers:)
     end
   end
 end
