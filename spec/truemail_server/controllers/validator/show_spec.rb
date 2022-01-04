@@ -13,9 +13,9 @@ RSpec.describe TruemailServer::Controllers::Validator::Show do
   end
 
   describe '.call' do
-    subject(:controller) { described_class.call(params: params, headers: headers) }
+    subject(:controller) { described_class.call(params:, headers:) }
 
-    let(:params) { { email: email } }
+    let(:params) { { email: } }
     let(:email) { nil }
     let(:headers) { { TruemailServer::Controllers::Base::AUTHORIZATION_HEADER => token } }
     let(:token) { 'some_access_token' }

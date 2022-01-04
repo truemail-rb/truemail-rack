@@ -2,7 +2,7 @@
 
 RSpec.describe RackHelpers, type: :helper do
   describe '#create_rack_request' do
-    subject(:helper) { create_rack_request(request_data) }
+    subject(:helper) { create_rack_request(**request_data) }
 
     context 'without args' do
       let(:request_data) { {} }
@@ -28,7 +28,7 @@ RSpec.describe RackHelpers, type: :helper do
   end
 
   describe '#create_rack_response' do
-    subject(:helper) { create_rack_response(response_data) }
+    subject(:helper) { create_rack_response(**response_data) }
 
     context 'without args' do
       let(:response_data) { {} }

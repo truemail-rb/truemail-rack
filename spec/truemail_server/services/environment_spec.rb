@@ -14,13 +14,7 @@ RSpec.describe TruemailServer::Services::Environment do
     end
 
     it 'returns json with data about current environment' do
-      expect(service).to eq(
-        {
-          core: core,
-          platform: platform,
-          version: version
-        }.to_json
-      )
+      expect(service).to eq({ core:, platform:, version: }.to_json)
     end
   end
 end

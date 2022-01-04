@@ -9,8 +9,8 @@ module TruemailServer
       AUTHORIZATION_HEADER = 'HTTP_AUTHORIZATION'
       CONTENT_TYPE = { 'Content-Type' => 'application/json' }.freeze
 
-      def self.call(**args)
-        new(args).call
+      def self.call(args)
+        new(**args).call
       end
 
       def initialize(params:, headers:)
