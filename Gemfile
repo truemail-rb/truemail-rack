@@ -26,5 +26,5 @@ end
 
 group :test do
   gem 'json_matchers', '~> 0.11.1', require: false
-  gem 'simplecov', '~> 0.17.1', require: false
+  gem 'simplecov', '~> 0.21.2', require: false
 end
