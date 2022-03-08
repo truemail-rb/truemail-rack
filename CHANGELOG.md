@@ -2,6 +2,21 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2022-03-08
+
+### Added
+
+- Ability to specify [SMTP port](https://github.com/truemail-rb/truemail/releases/tag/v2.7.0)
+
+### Changed
+
+- Updated `System::CommandLineParams`
+- Updated `System::Configuration::COMMAND_LINE_ATTRS`
+- Updated application dependencies (truemail 2.7.1)
+- Updated Ruby version to 3.1.1
+- Updated development dependencies
+- Updated application version
+
 ## [0.3.1] - 2022-01-04
 
 ### Changed

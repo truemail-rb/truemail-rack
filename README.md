@@ -64,6 +64,7 @@ Before run application you must configure it first. List of available env vars n
 | `BLACKLISTED_MX_IP_ADDRESSES` | `127.0.1.1,127.0.1.2` | - | With this option Truemail will filter out unwanted mx servers via predefined list of ip addresses. It can be used as a part of DEA (disposable email address) validations. Accepts one ore more values separated by commas.
 | `DNS` | `8.8.8.8,8.8.4.4:53` | - | This option will provide to use custom DNS gateway when Truemail interacts with DNS. If you won't specify nameserver's ports Truemail will use default DNS TCP/UDP port 53. Accepts one ore more values separated by commas. By default Truemail uses DNS gateway from system settings.
 | `NOT_RFC_MX_LOOKUP_FLOW` | `true` | - | This option will provide to use not RFC MX lookup flow. It means that MX and Null MX records will be cheked on the DNS validation layer only. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=not-rfc-mx-lookup-flow). |
+| `SMTP_PORT` | `2525` | - | SMTP port number. It is equal to `25` by default. |
 | `SMTP_FAIL_FAST` | `true` | - | This option will provide to use SMTP fail fast behaviour. When [smtp_fail_fast is enabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled) it means that Truemail ends smtp validation session after first attempt on the first mx server in any fail cases (network connection/timeout error, smtp validation error). By default this option is disabled, available for SMTP validation only. |
 | `SMTP_SAFE_CHECK` | `true` | - | This option will be parse bodies of SMTP errors. It will be helpful if SMTP server does not return an exact answer that the email does not exist. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-safe-check-disabled), available for SMTP validation only. |
 | `LOG_STDOUT` | `true` | - | This option will be enable log all http requests to stdout. By default this option is disabled. |
@@ -95,6 +96,7 @@ BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
 BLACKLISTED_MX_IP_ADDRESSES=127.0.1.1,127.0.1.2 \
 DNS=8.8.8.8,8.8.4.4:53 \
 NOT_RFC_MX_LOOKUP_FLOW=true \
+SMTP_PORT=2525 \
 SMTP_FAIL_FAST=true \
 SMTP_SAFE_CHECK=true \
 LOG_STDOUT=true \
@@ -206,9 +208,9 @@ Content-Type: application/json
 Server: thin
 
 {
-  "core": "2.5.4",
-  "platform": "ruby 2.6.6p146 (2020-03-31 revision 67876) [x86_64-darwin19]",
-  "version": "0.3.0"
+  "core": "2.7.1",
+  "platform": "ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x86_64-darwin20]",
+  "version": "0.4.0"
 }
 ```
 
@@ -233,6 +235,7 @@ All Truemail solutions: https://truemail-rb.org
 | Name | Type | Description |
 | --- | --- | --- |
 | [truemail](https://github.com/truemail-rb/truemail) | ruby gem | Configurable framework agnostic plain Ruby email validator, main core |
+| [truemail-go](https://github.com/truemail-rb/truemail-go) | go package | Configurable Golang email validator, main core |
 | [truemail-rack-docker](https://github.com/truemail-rb/truemail-rack-docker-image) | docker image | Lightweight rack based web API [dockerized image](https://hub.docker.com/r/truemail/truemail-rack) :whale: of Truemail server |
 | [truemail-ruby-client](https://github.com/truemail-rb/truemail-ruby-client) | ruby gem | Truemail web API client library for Ruby |
 | [truemail-crystal-client](https://github.com/truemail-rb/truemail-crystal-client) | crystal shard | Truemail web API client library for Crystal |
@@ -241,7 +244,7 @@ All Truemail solutions: https://truemail-rb.org
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/truemail-rb/truemail-rack. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct. Please check the [open tikets](https://github.com/truemail-rb/truemail-rack/issues). Be shure to follow Contributor Code of Conduct below and our [Contributing Guidelines](CONTRIBUTING.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/truemail-rb/truemail-rack. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct. Please check the [open tickets](https://github.com/truemail-rb/truemail-rack/issues). Be sure to follow Contributor Code of Conduct below and our [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
