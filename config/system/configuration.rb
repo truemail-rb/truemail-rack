@@ -21,6 +21,7 @@ module System
       blacklisted_mx_ip_addresses
       dns
       not_rfc_mx_lookup_flow
+      smtp_port
       smtp_fail_fast
       smtp_safe_check
       access_tokens

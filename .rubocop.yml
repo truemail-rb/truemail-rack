@@ -426,3 +426,9 @@ RSpec/Rails/AvoidSetupHook:
 
 RSpec/FactoryBot/SyntaxMethods:
   Enabled: true
+
+RSpec/BeEq:
+  Enabled: true
+
+RSpec/BeNil:
+  Enabled: true
