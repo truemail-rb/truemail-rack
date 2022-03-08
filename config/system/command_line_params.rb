@@ -19,6 +19,7 @@ module System
     attribute :blacklisted_mx_ip_addresses, System::Types::StringToArray.optional
     attribute :dns, System::Types::StringToArray.optional
     attribute :not_rfc_mx_lookup_flow, System::Types::Params::Bool.optional
+    attribute :smtp_port, System::Types::Coercible::Integer.optional
     attribute :smtp_fail_fast, System::Types::Params::Bool.optional
     attribute :smtp_safe_check, System::Types::Params::Bool.optional
     attribute :access_tokens, System::Types::StringToArray
