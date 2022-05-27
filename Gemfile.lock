@@ -68,7 +68,7 @@ GEM
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.1.1)
@@ -134,6 +134,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bundler-audit (~> 0.9.0.1)
@@ -143,7 +144,7 @@ DEPENDENCIES
   net-smtp (~> 0.3.1)
   overcommit (~> 0.58.0)
   pry-byebug (~> 3.9)
-  rack (~> 2.2, >= 2.2.3)
+  rack (~> 2.2)
   rack-test (~> 1.1)
   reek (~> 6.1)
   rspec (~> 3.11)
