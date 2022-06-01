@@ -77,7 +77,7 @@ Run Truemail server with command as in example below:
 VERIFIER_EMAIL=your_email@example.com ACCESS_TOKENS=a262d915-15bc-417c-afeb-842c63b54154 rackup
 
 # =>
-# Thin web server (v1.8.0 codename Possessed Pickle)
+# Thin web server (v1.8.1 codename Infinite Smoothie)
 # Maximum connections set to 1024
 # Listening on localhost:9292, CTRL+C to stop
 ```
@@ -103,7 +103,7 @@ LOG_STDOUT=true \
 thin -R config.ru -a 0.0.0.0 -p 9292 -e production start
 
 # =>
-# Thin web server (v1.8.0 codename Possessed Pickle)
+# Thin web server (v1.8.1 codename Infinite Smoothie)
 # Maximum connections set to 1024
 # Listening on localhost:9292, CTRL+C to stop
 # 127.0.0.1 - - [26/Feb/2020:16:41:13 +0200] "GET /?email=admin%40bestweb.com.ua HTTP/1.1" 200 - 0.9195
