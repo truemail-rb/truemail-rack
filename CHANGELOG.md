@@ -2,6 +2,19 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2022-11-03
+
+### Added
+
+- Ability to specify [whitelisted/blacklisted emails](https://github.com/truemail-rb/truemail/releases/tag/v3.0.0)
+
+### Changed
+
+- Updated application dependencies (truemail 3.0.1)
+- Updated development dependencies
+- Updated application codebase, tests
+- Updated application docs, version
+
 ## [0.4.2] - 2022-10-11
 
 ### Changed

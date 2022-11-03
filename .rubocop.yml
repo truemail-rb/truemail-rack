@@ -104,3 +104,6 @@ RSpec/StubbedMock:
 
 RSpec/VerifiedDoubleReference:
   Enabled: false
+
+RSpec/Rails/InferredSpecType:
+  Enabled: false
