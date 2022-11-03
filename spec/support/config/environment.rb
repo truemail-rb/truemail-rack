@@ -3,6 +3,8 @@
 ENV_VARS = {
   verifier_email: 'admin@bestweb.com.ua',
   access_tokens: 'token',
+  whitelisted_emails: 'whitelisted@example.com',
+  blacklisted_emails: 'blacklisted@example.com',
   whitelisted_domains: 'true.com',
   blacklisted_domains: 'false.com',
   log_stdout: 'false'

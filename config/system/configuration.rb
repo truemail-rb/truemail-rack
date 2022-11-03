@@ -15,9 +15,11 @@ module System
       connection_attempts
       default_validation_type
       validation_type_for
+      whitelisted_emails
+      blacklisted_emails
       whitelisted_domains
-      whitelist_validation
       blacklisted_domains
+      whitelist_validation
       blacklisted_mx_ip_addresses
       dns
       not_rfc_mx_lookup_flow
