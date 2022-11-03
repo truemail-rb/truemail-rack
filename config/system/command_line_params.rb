@@ -13,9 +13,11 @@ module System
     attribute :connection_attempts, System::Types::Coercible::Integer.optional
     attribute :default_validation_type, System::Types::Coercible::Symbol.optional
     attribute :validation_type_for, System::Types::StringToHash.optional
+    attribute :whitelisted_emails, System::Types::StringToArray.optional
+    attribute :blacklisted_emails, System::Types::StringToArray.optional
     attribute :whitelisted_domains, System::Types::StringToArray.optional
-    attribute :whitelist_validation, System::Types::Params::Bool.optional
     attribute :blacklisted_domains, System::Types::StringToArray.optional
+    attribute :whitelist_validation, System::Types::Params::Bool.optional
     attribute :blacklisted_mx_ip_addresses, System::Types::StringToArray.optional
     attribute :dns, System::Types::StringToArray.optional
     attribute :not_rfc_mx_lookup_flow, System::Types::Params::Bool.optional

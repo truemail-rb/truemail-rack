@@ -58,9 +58,11 @@ Before run application you must configure it first. List of available env vars n
 | `CONNECTION_ATTEMPTS` | `3` | - | Total of connection attempts. It is equal to `2` by default. This parameter uses in mx lookup timeout error and smtp request (for cases when there is one mx server). |
 | `DEFAULT_VALIDATION_TYPE` | `mx` | - |  You can predefine Truemail default validation type (`smtp`). Available validation types: [`regex`](https://truemail-rb.org/truemail-gem/#/validations-layers?id=regex-validation), [`mx`](https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-validation), [`mx_blacklist`](https://truemail-rb.org/truemail-gem/#/validations-layers?id=mx-blacklist-validation), [`smtp`](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-validation). |
 | `VALIDATION_TYPE_FOR` | `somedomain.com:regex` | - | You can predefine which type of validation will be used for domains. Available validation types: `regex`, `mx`, `mx_blacklist`, `smtp`. This configuration will be used over `DEFAULT_VALIDATION_TYPE`. All of validations for `somedomain.com` will be processed with `regex` validation only. Accepts one or more key:value separated by commas. |
+| `WHITELISTED_EMAILS` | `user@somedomain1.com` | - | Validation of email which [contains whitelisted email](https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelist-case) always will return `true`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
+| `BLACKLISTED_EMAILS` | `user@somedomain2.com` | - | Validation of email which [contains blacklisted email](https://truemail-rb.org/truemail-gem/#/validations-layers?id=blacklist-case) always will return `false`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
 | `WHITELISTED_DOMAINS` | `somedomain1.com` | - | Validation of email which [contains whitelisted domain](https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelist-case) always will return `true`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
-| `WHITELIST_VALIDATION` | `true` | - | With this option Truemail will validate email which [contains whitelisted domain only](https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelist-validation-case), i.e. if domain whitelisted, validation will passed to Regex, MX or SMTP validators. Validation of email which not contains whitelisted domain always will return `false`. It is equal `false` by default. |
 | `BLACKLISTED_DOMAINS` | `somedomain2.com` | - | Validation of email which [contains blacklisted domain](https://truemail-rb.org/truemail-gem/#/validations-layers?id=blacklist-case) always will return `false`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
+| `WHITELIST_VALIDATION` | `true` | - | With this option Truemail will validate email which [contains whitelisted domain only](https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelist-validation-case), i.e. if domain whitelisted, validation will passed to Regex, MX or SMTP validators. Validation of email which not contains whitelisted domain always will return `false`. It is equal `false` by default. |
 | `BLACKLISTED_MX_IP_ADDRESSES` | `127.0.1.1,127.0.1.2` | - | With this option Truemail will filter out unwanted mx servers via predefined list of ip addresses. It can be used as a part of DEA (disposable email address) validations. Accepts one ore more values separated by commas.
 | `DNS` | `8.8.8.8,8.8.4.4:53` | - | This option will provide to use custom DNS gateway when Truemail interacts with DNS. If you won't specify nameserver's ports Truemail will use default DNS TCP/UDP port 53. Accepts one ore more values separated by commas. By default Truemail uses DNS gateway from system settings.
 | `NOT_RFC_MX_LOOKUP_FLOW` | `true` | - | This option will provide to use not RFC MX lookup flow. It means that MX and Null MX records will be cheked on the DNS validation layer only. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=not-rfc-mx-lookup-flow). |
@@ -90,9 +92,11 @@ ACCESS_TOKENS=a262d915-15bc-417c-afeb-842c63b54154,f44cd67e-aaa0-4e6c-aa6c-d52cf
 EMAIL_PATTERN="/\A.+@.+\z/" \
 SMTP_ERROR_BODY_PATTERN="/(?=.*550)(?=.*(user|account|customer|mailbox|something_else)).*/" \
 VALIDATION_TYPE_FOR=somedomain1.com:regex,somedomain2.com:mx \
+WHITELISTED_EMAILS=whitelisted@example.com \
+BLACKLISTED_EMAILS=blacklisted1@example.com,blacklisted2@example.com \
 WHITELISTED_DOMAINS=somedomain3.com \
-WHITELIST_VALIDATION=true \
 BLACKLISTED_DOMAINS=somedomain4.com,somedomain5.com \
+WHITELIST_VALIDATION=true \
 BLACKLISTED_MX_IP_ADDRESSES=127.0.1.1,127.0.1.2 \
 DNS=8.8.8.8,8.8.4.4:53 \
 NOT_RFC_MX_LOOKUP_FLOW=true \
@@ -132,17 +136,19 @@ Server: thin
   "errors": null,
   "smtp_debug": null,
   "configuration": {
+    "validation_type_by_domain": null,
+    "whitelisted_emails": null,
+    "blacklisted_emails": null,
+    "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "whitelist_validation": false,
     "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
     "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
-    "smtp_safe_check": false,
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null
+    "smtp_safe_check": false
   }
 }
 ```
@@ -179,17 +185,19 @@ Server: thin
     }
   ],
   "configuration": {
+    "validation_type_by_domain": null,
+    "whitelisted_emails": null,
+    "blacklisted_emails": null,
+    "whitelisted_domains": null,
     "blacklisted_domains": null,
+    "whitelist_validation": false,
     "blacklisted_mx_ip_addresses": null,
     "dns": null,
     "email_pattern": "default gem value",
     "not_rfc_mx_lookup_flow": false,
     "smtp_error_body_pattern": "default gem value",
     "smtp_fail_fast": false,
-    "smtp_safe_check": false,
-    "validation_type_by_domain": null,
-    "whitelist_validation": false,
-    "whitelisted_domains": null
+    "smtp_safe_check": false
   }
 }
 ```
@@ -208,9 +216,9 @@ Content-Type: application/json
 Server: thin
 
 {
-  "core": "2.7.1",
-  "platform": "ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x86_64-darwin20]",
-  "version": "0.4.0"
+  "core": "3.0.1",
+  "platform": "ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-darwin20]",
+  "version": "0.5.0"
 }
 ```
 
