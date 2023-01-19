@@ -6,7 +6,7 @@ ruby(::File.read(::File.join(::File.dirname(__FILE__), '.ruby-version')).strip[/
 
 gem 'dry-struct', '~> 1.5', '>= 1.5.2'
 gem 'net-smtp', '~> 0.3.3'
-gem 'rack', '~> 2.2', '>= 2.2.4'
+gem 'rack', '~> 2.2'
 gem 'thin', '~> 1.8', '>= 1.8.1'
 gem 'truemail', '~> 3.0', '>= 3.0.1'
 
