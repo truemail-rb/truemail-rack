@@ -20,6 +20,9 @@ Style/ParallelAssignment:
 Style/FetchEnvVar:
   Enabled: false
 
+Style/RedundantConstantBase:
+  Enabled: false
+
 # Metrics ---------------------------------------------------------------------
 
 Layout/LineLength:

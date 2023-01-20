@@ -38,7 +38,7 @@
 - One endpoint for email validation with token-based authentication
 - No DB usage
 
-## Intallation
+## Installation
 
     $ git clone https://github.com/truemail-rb/truemail-rack.git
 
