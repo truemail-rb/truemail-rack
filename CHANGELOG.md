@@ -2,6 +2,20 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2023-01-20
+
+### Fixed
+
+- Fixed security vulnerability issue [CVE-2022-44571](https://github.com/advisories/GHSA-93pm-5p5f-3ghx)
+
+### Changed
+
+- Updated application dependencies (rack 2.2.6.2, truemail 3.0.5)
+- Updated Ruby version to 3.2.0
+- Updated development dependencies
+- Updated application version
+- Updated readme
+
 ## [0.5.0] - 2022-11-03
 
 ### Added
