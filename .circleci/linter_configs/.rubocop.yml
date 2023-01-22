@@ -1,12 +1,14 @@
+---
+
 require:
   - rubocop-rspec
   - rubocop-performance
 
 
 AllCops:
-  DisplayCopNames:    true
-  DisplayStyleGuide:  true
-  TargetRubyVersion:  3.1
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRubyVersion: 3.2
   NewCops: enable
 
 # Style -----------------------------------------------------------------------
@@ -65,14 +67,14 @@ Layout/ClassStructure:
       - belongs_to
       - has_and_belongs_to_many
   ExpectedOrder:
-      - module_inclusion
-      - constants
-      - associations
-      - public_class_methods
-      - initializer
-      - public_methods
-      - protected_methods
-      - private_methods
+    - module_inclusion
+    - constants
+    - associations
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
 
 # Lint ------------------------------------------------------------------------
 
