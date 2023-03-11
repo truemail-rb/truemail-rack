@@ -2,6 +2,30 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2023-03-11
+
+### Added
+
+- Added [`cspell`](https://cspell.org) linter
+- Added [`markdownlint`](https://github.com/DavidAnson/markdownlint) linter
+- Added [`shellcheck`](https://www.shellcheck.net) linter
+- Added [`yamllint`](https://yamllint.readthedocs.io) linter
+- Added [`lefthook`](https://github.com/evilmartians/lefthook) linters aggregator
+- Added `changeloglint`
+- Added auto creating release notes on GitHub
+- Added auto releasing scripts
+
+### Fixed
+
+- Fixed security vulnerability issue [CVE-2023-27530](https://github.com/advisories/GHSA-3h57-hmj3-gj3p)
+
+### Changed
+
+- Updated application dependencies (`rack` 2.2.6.3, `truemail` 3.0.7)
+- Updated development dependencies
+- Updated application version
+- Updated readme
+
 ## [0.6.0] - 2023-01-20
 
 ### Fixed
@@ -10,7 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (rack 2.2.6.2, truemail 3.0.5)
+- Updated application dependencies (`rack` 2.2.6.2, `truemail` 3.0.5)
 - Updated Ruby version to 3.2.0
 - Updated development dependencies
 - Updated application version
@@ -24,7 +48,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 3.0.1)
+- Updated application dependencies (`truemail` 3.0.1)
 - Updated development dependencies
 - Updated application codebase, tests
 - Updated application docs, version
@@ -33,7 +57,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (rack 2.2.4, truemail 2.7.5)
+- Updated application dependencies (`rack` 2.2.4, `truemail` 2.7.5)
 - Updated development dependencies
 - Updated application version
 
@@ -45,7 +69,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (rack 2.2.3.1, truemail 2.7.3)
+- Updated application dependencies (`rack` 2.2.3.1, `truemail` 2.7.3)
 - Updated Ruby version to 3.1.2
 - Updated development dependencies
 - Updated application version
@@ -61,7 +85,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Updated `System::CommandLineParams`
 - Updated `System::Configuration::COMMAND_LINE_ATTRS`
-- Updated application dependencies (truemail 2.7.1)
+- Updated application dependencies (`truemail` 2.7.1)
 - Updated Ruby version to 3.1.1
 - Updated development dependencies
 - Updated application version
@@ -70,7 +94,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.6)
+- Updated application dependencies (`truemail` 2.6)
 - Updated Ruby version to 3.1.0
 - Updated development dependencies
 - Updated application version
@@ -84,7 +108,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Updated
 
 - Updated development dependencies
-- Updated rubocop/codeclimate config
+- Updated `rubocop`/`codeclimate` config
 - Updated application version
 - Updated documentation
 
@@ -92,7 +116,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.5.4)
+- Updated application dependencies (`truemail` 2.5.4)
 - Updated development dependencies
 - Updated application version
 
@@ -100,7 +124,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.5.3)
+- Updated application dependencies (`truemail` 2.5.3)
 - Updated development dependencies
 - Updated application version
 
@@ -108,7 +132,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.5.2)
+- Updated application dependencies (`truemail` 2.5.2)
 - Updated development dependencies
 - Updated application version
 
@@ -116,7 +140,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.5.1)
+- Updated application dependencies (`truemail` 2.5.1)
 - Updated development dependencies
 - Updated application version
 
@@ -124,7 +148,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.4.6)
+- Updated application dependencies (`truemail` 2.4.6)
 - Updated development dependencies
 - Updated application version
 
@@ -132,7 +156,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.4.4)
+- Updated application dependencies (`truemail` 2.4.4)
 - Updated development dependencies
 - Updated application version
 
@@ -140,7 +164,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.4.2)
+- Updated application dependencies (`truemail` 2.4.2)
 - Updated development dependencies
 - Updated application version
 - Updated CircleCI config
@@ -155,14 +179,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Updated `System::Configuration::COMMAND_LINE_ATTRS`
 - Updated `Truemail` to latest version (2.4.1)
 - Updated runtime/development dependencies
-- Updated rubocop/codeclimate configs
+- Updated `rubocop`/`codeclimate` configs
 - Updated application readme, version, changelog
 
 ## [0.2.11] - 2021-03-24
 
 ### Changed
 
-- Updated application dependencies (truemail 2.3.2)
+- Updated application dependencies (`truemail` 2.3.2)
 - Updated development dependencies
 - Updated application version
 
@@ -174,7 +198,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.3.0)
+- Updated application dependencies (`truemail` 2.3.0)
 - Updated development dependencies
 - Updated application version
 
@@ -182,7 +206,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.2.3)
+- Updated application dependencies (`truemail` 2.2.3)
 - Updated Ruby version to 2.6.6
 - Updated application version
 
@@ -200,23 +224,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies (truemail 2.2.1)
-- Updated develoment dependencies
+- Updated application dependencies (`truemail` 2.2.1)
+- Updated development dependencies
 - Updated application version
 
 ## [0.2.6] - 2020-11-25
 
 ### Changed
 
-- Updated application dependencies (truemail 2.1.0)
-- Updated develoment dependencies
+- Updated application dependencies (`truemail` 2.1.0)
+- Updated development dependencies
 - Updated application version
 
 ## [0.2.5] - 2020-10-23
 
 ### Changed
 
-- Updated application dependencies (truemail 2.0.1)
+- Updated application dependencies (`truemail` 2.0.1)
 - Updated application version
 
 ## [0.2.4] - 2020-08-06
@@ -234,7 +258,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 
-- Updated application dependencies, fixed Rack security vulnerability
+- Updated application dependencies, fixed `rack` security vulnerability
 - Updated application version
 
 ## [0.2.2] - 2020-05-10
@@ -255,7 +279,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Updated application dependencies
 - Updated application documentation
-- Updated rubocop config
+- Updated `rubocop` config
 - Updated application version
 
 ## [0.2.0] - 2020-02-26
@@ -273,4 +297,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Added
 
-- Basic functionality of Truemail server
+- Basic functionality of `truemail` server

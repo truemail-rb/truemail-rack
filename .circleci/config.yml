@@ -1,31 +1,48 @@
+---
+
+version: 2.1
+
 defaults: &defaults
   working_directory: ~/truemail-server
   docker:
-    - image: cimg/ruby:3.2.0
+    - image: cimg/ruby:3.2.0-node
 
 references:
   install_bundler: &install_bundler
     run:
       name: Installing bundler
-      command: gem i bundler -v $(tail -1 Gemfile.lock | tr -d ' ')
+      command: |
+            gem i bundler -v $(tail -1 Gemfile.lock | tr -d ' ')
+            bundle config set --local path '~/vendor/bundle'
 
   restore_bundle_cache: &restore_bundle_cache
     restore_cache:
       keys:
-        - truemail-server-{{ checksum "Gemfile" }}
+        - truemail-server-{{ checksum "Gemfile.lock" }}
+      paths:
+        - ~/vendor/bundle
 
   bundle_install: &bundle_install
     run:
       name: Installing gems
-      command: |
-            bundle config set --local path 'vendor/bundle'
-            bundle install
+      command: bundle install
 
   save_bundle_cache: &save_bundle_cache
     save_cache:
-      key: truemail-server-{{ checksum "Gemfile" }}
+      key: truemail-server-{{ checksum "Gemfile.lock" }}
       paths:
-        - vendor/bundle
+        - ~/vendor/bundle
+
+  install_linters: &install_linters
+    run:
+      name: Installing bunch of linters
+      command: |
+            curl -1sLf 'https://dl.cloudsmith.io/public/evilmartians/lefthook/setup.deb.sh' | sudo -E bash
+            sudo apt-get update -y
+            sudo apt-get install -y lefthook shellcheck yamllint
+            npm install --prefix='~/.local' --global --save-dev git+https://github.com/streetsidesoftware/cspell-cli markdownlint-cli
+            cp .circleci/linter_configs/.fasterer.yml .fasterer.yml
+            cp .circleci/linter_configs/.lefthook.yml lefthook.yml
 
   install_codeclimate_reporter: &install_codeclimate_reporter
     run:
@@ -34,7 +51,6 @@ references:
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
 
-version: 2
 jobs:
   linters:
     <<: *defaults
@@ -46,12 +62,27 @@ jobs:
       - <<: *restore_bundle_cache
       - <<: *bundle_install
       - <<: *save_bundle_cache
+      - <<: *install_linters
 
       - run:
-          name: Running Overcommit
-          command: |
-            bundle exec overcommit -s
-            SKIP=AuthorEmail,AuthorName bundle exec overcommit -r
+          name: Running code style linters
+          command: lefthook run code-style-linters
+
+      - run:
+          name: Running code performance linters
+          command: lefthook run code-performance-linters
+
+      - run:
+          name: Running code vulnerability linters
+          command: lefthook run code-vulnerability-linters
+
+      - run:
+          name: Running code documentation linters
+          command: lefthook run code-documentation-linters
+
+      - run:
+          name: Running release linters
+          command: lefthook run release-linters
 
   tests:
     <<: *defaults
@@ -86,9 +117,51 @@ jobs:
           command: |
             ./cc-test-reporter sum-coverage --output - --parts $CIRCLE_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
 
+  tag:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "4c:59:4d:fb:7a:74:00:7a:8e:e3:72:88:34:fc:6e:74"
+
+      - run:
+          name: Publishing new tag to GitHub
+          command: |
+            ./.circleci/scripts/tag.sh
+
+  release:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "4c:59:4d:fb:7a:74:00:7a:8e:e3:72:88:34:fc:6e:74"
+
+      - run:
+          name: Publishing new release to GitHub
+          command: |
+            ./.circleci/scripts/release.sh
+
 workflows:
-  version: 2
   build:
     jobs:
       - linters
       - tests
+      - tag:
+          requires:
+            - linters
+            - tests
+          filters:
+            branches:
+              only: master
+      - release:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*(-.*)*/
