@@ -117,8 +117,51 @@ jobs:
           command: |
             ./cc-test-reporter sum-coverage --output - --parts $CIRCLE_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
 
+  tag:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "4c:59:4d:fb:7a:74:00:7a:8e:e3:72:88:34:fc:6e:74"
+
+      - run:
+          name: Publishing new tag to GitHub
+          command: |
+            ./.circleci/scripts/tag.sh
+
+  release:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      - add_ssh_keys:
+          fingerprints:
+            - "4c:59:4d:fb:7a:74:00:7a:8e:e3:72:88:34:fc:6e:74"
+
+      - run:
+          name: Publishing new release to GitHub
+          command: |
+            ./.circleci/scripts/release.sh
+
 workflows:
   build:
     jobs:
       - linters
       - tests
+      - tag:
+          requires:
+            - linters
+            - tests
+          filters:
+            branches:
+              only: master
+      - release:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*(-.*)*/
