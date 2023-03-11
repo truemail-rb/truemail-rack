@@ -2,6 +2,30 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2023-03-11
+
+### Added
+
+- Added [`cspell`](https://cspell.org) linter
+- Added [`markdownlint`](https://github.com/DavidAnson/markdownlint) linter
+- Added [`shellcheck`](https://www.shellcheck.net) linter
+- Added [`yamllint`](https://yamllint.readthedocs.io) linter
+- Added [`lefthook`](https://github.com/evilmartians/lefthook) linters aggregator
+- Added `changeloglint`
+- Added auto creating release notes on GitHub
+- Added auto releasing scripts
+
+### Fixed
+
+- Fixed security vulnerability issue [CVE-2023-27530](https://github.com/advisories/GHSA-3h57-hmj3-gj3p)
+
+### Changed
+
+- Updated application dependencies (`rack` 2.2.6.3, `truemail` 3.0.7)
+- Updated development dependencies
+- Updated application version
+- Updated readme
+
 ## [0.6.0] - 2023-01-20
 
 ### Fixed
