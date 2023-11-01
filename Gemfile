@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 ruby(::File.read(::File.join(::File.dirname(__FILE__), '.ruby-version')).strip[/-(.+)/, 1])
 
 gem 'dry-struct', '~> 1.6'
-gem 'net-smtp', '~> 0.3.3'
-gem 'rack', '~> 2.2', '>= 2.2.6.4'
-gem 'thin', '~> 1.8', '>= 1.8.1'
-gem 'truemail', '~> 3.0', '>= 3.0.9'
+gem 'net-smtp', '~> 0.4.0'
+gem 'rack', '~> 2.2', '>= 2.2.8'
+gem 'thin', '~> 1.8', '>= 1.8.2'
+gem 'truemail', '~> 3.1'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
@@ -19,9 +19,9 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1', require: false
   gem 'fasterer', '~> 0.10.1', require: false
   gem 'reek', '~> 6.1', '>= 6.1.4', require: false
-  gem 'rubocop', '~> 1.54', '>= 1.54.2', require: false
-  gem 'rubocop-performance', '~> 1.18', require: false
-  gem 'rubocop-rspec', '~> 2.22', require: false
+  gem 'rubocop', '~> 1.57', '>= 1.57.2', require: false
+  gem 'rubocop-performance', '~> 1.19', '>= 1.19.1', require: false
+  gem 'rubocop-rspec', '~> 2.25', require: false
 end
 
 group :test do
