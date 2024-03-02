@@ -5,7 +5,7 @@ version: 2.1
 defaults: &defaults
   working_directory: ~/truemail-server
   docker:
-    - image: cimg/ruby:3.2.0-node
+    - image: cimg/ruby:3.3.0-node
 
 references:
   install_bundler: &install_bundler

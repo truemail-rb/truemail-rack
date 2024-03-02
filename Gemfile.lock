@@ -146,6 +146,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  ruby
 
 DEPENDENCIES
   bundler-audit (~> 0.9.1)
@@ -166,7 +167,7 @@ DEPENDENCIES
   truemail (~> 3.3)
 
 RUBY VERSION
-   ruby 3.2.0p0
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.4.6
+   2.5.5
