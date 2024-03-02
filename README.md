@@ -65,8 +65,8 @@ Before run application you must configure it first. List of available env vars n
 | `WHITELISTED_DOMAINS` | `somedomain1.com` | - | Validation of email which [contains whitelisted domain](https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelist-case) always will return `true`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
 | `BLACKLISTED_DOMAINS` | `somedomain2.com` | - | Validation of email which [contains blacklisted domain](https://truemail-rb.org/truemail-gem/#/validations-layers?id=blacklist-case) always will return `false`. Other validations will not processed even if it was defined in `VALIDATION_TYPE_FOR`. Accepts one ore more values separated by commas. |
 | `WHITELIST_VALIDATION` | `true` | - | With this option Truemail will validate email which [contains whitelisted domain only](https://truemail-rb.org/truemail-gem/#/validations-layers?id=whitelist-validation-case), i.e. if domain whitelisted, validation will passed to Regex, MX or SMTP validators. Validation of email which not contains whitelisted domain always will return `false`. It is equal `false` by default. |
-| `BLACKLISTED_MX_IP_ADDRESSES` | `127.0.1.1,127.0.1.2` | - | With this option Truemail will filter out unwanted mx servers via predefined list of ip addresses. It can be used as a part of DEA (disposable email address) validations. Accepts one ore more values separated by commas.
-| `DNS` | `8.8.8.8,8.8.4.4:53` | - | This option will provide to use custom DNS gateway when Truemail interacts with DNS. If you won't specify nameserver's ports Truemail will use default DNS TCP/UDP port 53. Accepts one ore more values separated by commas. By default Truemail uses DNS gateway from system settings.
+| `BLACKLISTED_MX_IP_ADDRESSES` | `127.0.1.1,127.0.1.2` | - | With this option Truemail will filter out unwanted mx servers via predefined list of ip addresses. It can be used as a part of DEA (disposable email address) validations. Accepts one ore more values separated by commas. |
+| `DNS` | `8.8.8.8,8.8.4.4:53` | - | This option will provide to use custom DNS gateway when Truemail interacts with DNS. If you won't specify nameserver's ports Truemail will use default DNS TCP/UDP port 53. Accepts one ore more values separated by commas. By default Truemail uses DNS gateway from system settings. |
 | `NOT_RFC_MX_LOOKUP_FLOW` | `true` | - | This option will provide to use not RFC MX lookup flow. It means that MX and Null MX records will be checked on the DNS validation layer only. By default [this option is disabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=not-rfc-mx-lookup-flow). |
 | `SMTP_PORT` | `2525` | - | SMTP port number. It is equal to `25` by default. |
 | `SMTP_FAIL_FAST` | `true` | - | This option will provide to use SMTP fail fast behavior. When [smtp_fail_fast is enabled](https://truemail-rb.org/truemail-gem/#/validations-layers?id=smtp-fail-fast-enabled) it means that Truemail ends smtp validation session after first attempt on the first mx server in any fail cases (network connection/timeout error, smtp validation error). By default this option is disabled, available for SMTP validation only. |
@@ -218,9 +218,9 @@ Content-Type: application/json
 Server: thin
 
 {
-  "core": "3.0.1",
-  "platform": "ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-darwin20]",
-  "version": "0.5.0"
+  "core": "3.3.0",
+  "platform": "ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin22]",
+  "version": "0.10.0"
 }
 ```
 

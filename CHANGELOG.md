@@ -2,6 +2,20 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0] - 2024-03-02
+
+### Changed
+
+- Updated application dependencies (`rack` 2.2.8.1, `net-smtp` 0.4.0.1, `truemail` 3.3)
+- Updated Ruby version to 3.3.0
+- Updated development dependencies
+- Updated application version
+- Updated readme
+
+### Fixed
+
+- Fixed security vulnerability issues: [CVE-2024-25126](https://github.com/advisories/GHSA-22f2-v57c-j9cx), [CVE-2024-26141](https://github.com/advisories/GHSA-xj5v-6v4g-jfw6), [CVE-2024-26146](https://github.com/advisories/GHSA-54rr-7fvw-6x8f)
+
 ## [0.9.0] - 2023-11-01
 
 ### Changed

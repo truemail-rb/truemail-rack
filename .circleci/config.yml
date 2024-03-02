@@ -5,7 +5,7 @@ version: 2.1
 defaults: &defaults
   working_directory: ~/truemail-server
   docker:
-    - image: cimg/ruby:3.2.0-node
+    - image: cimg/ruby:3.3.0-node
 
 references:
   install_bundler: &install_bundler
@@ -63,6 +63,10 @@ jobs:
       - <<: *bundle_install
       - <<: *save_bundle_cache
       - <<: *install_linters
+
+      - run:
+          name: Running commit linters
+          command: lefthook run commit-linters
 
       - run:
           name: Running code style linters
