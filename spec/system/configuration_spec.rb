@@ -45,8 +45,8 @@ RSpec.describe System::Configuration do
 
       it 'raises System::Configuration::Error' do
         expect { command_line_params }.to raise_error(
-          System::Configuration::Error,
-          System::Configuration::INVALID_COMMAND_LINE_PARAMS
+          described_class::Error,
+          described_class::INVALID_COMMAND_LINE_PARAMS
         )
       end
     end

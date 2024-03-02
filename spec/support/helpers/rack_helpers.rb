@@ -14,7 +14,7 @@ module RackHelpers
   end
 
   def reload_rack_cascade!
-    TruemailServer.send(:remove_const, :RackCascade)
+    TruemailServer.send(:remove_const, :RackCascade) # rubocop:disable RSpec/RemoveConst
     load 'app/truemail_server/rack_cascade.rb'
   end
 end

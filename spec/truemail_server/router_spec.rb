@@ -51,7 +51,7 @@ RSpec.describe TruemailServer::Router do
     let(:headers) { { 'HTTP_AUTHORIZATION' => 'token' } }
 
     it 'processes params and proxies request data to controller' do
-      expect(TruemailServer::Router::Resolver).to receive(:call).with(path).and_return(controller)
+      expect(described_class::Resolver).to receive(:call).with(path).and_return(controller)
       expect(router).to eq(params: params.transform_keys(&:to_sym), headers:)
     end
   end
