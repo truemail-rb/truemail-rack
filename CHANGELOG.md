@@ -2,6 +2,14 @@
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.11.0] - 2024-04-29
+
+### Changed
+
+- Updated application dependencies ( `net-smtp` 0.5.0, `truemail` 3.3.1)
+- Updated development dependencies
+- Updated application version
+
 ## [0.10.0] - 2024-03-02
 
 ### Changed
